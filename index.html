@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Helex Minerals Private Limited</title>
+<title>HELEX MINERALS PRIVATE LIMITED</title>
 
 <style>
 *{
@@ -14,7 +15,7 @@ font-family:Arial, sans-serif;
 }
 
 body{
-background:#0b1d35;
+background:#0b1220;
 color:white;
 }
 
@@ -29,81 +30,88 @@ top:0;
 z-index:1000;
 }
 
-.logo{
-font-size:28px;
-font-weight:bold;
+header h1{
 color:#00bfff;
+font-size:28px;
 }
 
 nav a{
 color:white;
 text-decoration:none;
-margin:0 15px;
-font-size:18px;
+margin-left:25px;
+font-weight:bold;
 }
 
 .hero{
 height:90vh;
-background:url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1600') center/cover;
+background:url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1600&auto=format&fit=crop') center/cover;
 display:flex;
 align-items:center;
-padding:50px;
+padding:60px;
 }
 
-.hero-content{
+.hero-box{
 background:rgba(0,0,0,0.6);
 padding:40px;
-border-radius:10px;
 max-width:600px;
+border-radius:15px;
 }
 
-.hero h1{
-font-size:55px;
+.hero h2{
+font-size:52px;
 margin-bottom:20px;
 }
 
 .hero p{
-font-size:22px;
+font-size:20px;
 line-height:1.6;
-margin-bottom:20px;
 }
 
 .btn{
 display:inline-block;
-padding:15px 30px;
+margin-top:20px;
+padding:14px 30px;
 background:#00bfff;
 color:white;
 text-decoration:none;
-border-radius:5px;
-font-size:20px;
+border-radius:8px;
+font-weight:bold;
 }
 
 .section{
-padding:80px 50px;
+padding:70px 40px;
 }
 
-.section h2{
+.section-title{
 text-align:center;
 font-size:40px;
-margin-bottom:40px;
+margin-bottom:50px;
 color:#00bfff;
+}
+
+.about{
+text-align:center;
+max-width:1000px;
+margin:auto;
+font-size:20px;
+line-height:1.8;
 }
 
 .products{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:25px;
 }
 
 .card{
-background:#122544;
-border-radius:10px;
+background:#111c30;
+border-radius:15px;
 overflow:hidden;
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px);
+transform:translateY(-8px);
 }
 
 .card img{
@@ -115,38 +123,63 @@ object-fit:cover;
 .card h3{
 padding:20px;
 text-align:center;
-font-size:28px;
-}
-
-.about{
-display:flex;
-flex-wrap:wrap;
-gap:40px;
-align-items:center;
-}
-
-.about img{
-width:350px;
-border-radius:10px;
-}
-
-.about-text{
-flex:1;
-font-size:22px;
-line-height:1.8;
+font-size:24px;
 }
 
 .contact{
 text-align:center;
-font-size:24px;
+font-size:20px;
 line-height:2;
 }
 
 footer{
 background:#081426;
-padding:20px;
 text-align:center;
-font-size:18px;
+padding:20px;
+margin-top:50px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50%;
+font-size:30px;
+text-decoration:none;
+}
+
+.logo{
+width:180px;
+margin-bottom:20px;
+}
+
+@media(max-width:768px){
+
+header{
+padding:15px 20px;
+flex-direction:column;
+}
+
+nav{
+margin-top:10px;
+}
+
+.hero{
+padding:20px;
+height:auto;
+}
+
+.hero h2{
+font-size:35px;
+}
+
+.hero p{
+font-size:17px;
+}
+
 }
 </style>
 
@@ -154,86 +187,106 @@ font-size:18px;
 <body>
 
 <header>
-<div class="logo">HELEX MINERALS</div>
+<h1>HELEX MINERALS</h1>
 
 <nav>
 <a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Products</a>
-<a href="#">Contact</a>
+<a href="#about">About</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
 </nav>
 </header>
 
 <section class="hero">
-<div class="hero-content">
-<h1>HELEX MINERALS PRIVATE LIMITED</h1>
+
+<div class="hero-box">
+
+<img src="https://i.postimg.cc/fL1q4J5P/1000472023.jpg" class="logo">
+
+<h2>HELEX MINERALS PRIVATE LIMITED</h2>
 
 <p>
-Leading Manufacturer & Supplier of Quartz Powder,
-Feldspar Powder, Silica Sand & Mineral Lumps
+Leading Manufacturer & Supplier of Quartz Powder, Feldspar Powder,
+Silica Sand, Soda Feldspar Lumps & Mineral Products.
 </p>
 
 <a href="tel:9636272905" class="btn">Call Now</a>
+
 </div>
+
 </section>
 
-<section class="section">
-<h2>OUR PRODUCTS</h2>
+<section class="section" id="about">
+
+<h2 class="section-title">About Company</h2>
+
+<div class="about">
+
+HELEX MINERALS PRIVATE LIMITED is a trusted minerals manufacturer and supplier based in Rajasthan, India.
+We provide premium quality Quartz Powder, Feldspar Powder, Silica Sand,
+Soda Feldspar Lumps and Mineral Lumps with high purity and quality standards.
+
+Our company focuses on delivering top-grade mineral products for ceramic,
+glass, paint and industrial applications across India.
+
+</div>
+
+</section>
+
+<section class="section" id="products">
+
+<h2 class="section-title">Our Products</h2>
 
 <div class="products">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1000">
+<img src="https://i.postimg.cc/9fZ8xY1M/1000472317.png">
 <h3>Quartz Powder</h3>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1000">
+<img src="https://i.postimg.cc/jjD2V1Zm/1000472324.png">
 <h3>Feldspar Powder</h3>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1000">
-<h3>Silica Sand</h3>
+<img src="https://i.postimg.cc/J0kD8S8n/1000472325.png">
+<h3>Soda Feldspar Lumps</h3>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000">
-<h3>Mineral Lumps</h3>
+<img src="https://i.postimg.cc/XJ0m8L5v/1000472330.png">
+<h3>Feldspar Lumps</h3>
 </div>
 
 </div>
+
 </section>
 
-<section class="section">
-<h2>ABOUT COMPANY</h2>
+<section class="section" id="contact">
 
-<div class="about">
-
-<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000">
-
-<div class="about-text">
-Helex Minerals Private Limited is a Rajasthan based mining and mineral export company engaged in manufacturing and supply of premium quality minerals worldwide.
-<br><br>
-We provide Quartz, Feldspar, Silica and Mineral Lumps with trusted quality and professional service.
-</div>
-
-</div>
-</section>
-
-<section class="section">
-<h2>CONTACT US</h2>
+<h2 class="section-title">Contact Us</h2>
 
 <div class="contact">
-📞 +91 9636272905<br>
-📧 helexminerals@gmail.com<br>
-📍 Rajasthan, India
+
+📞 +91 9636272905 <br>
+
+📧 helexminerals@gmail.com <br>
+
+📍 Ward 1 Pratap Nagar, Asind, Bhilwara, Rajasthan - 311301
+
 </div>
+
 </section>
 
 <footer>
-© 2026 Helex Minerals Private Limited | All Rights Reserved
+
+© 2026 HELEX MINERALS PRIVATE LIMITED | All Rights Reserved
+
 </footer>
+
+<a class="whatsapp" href="https://wa.me/919636272905">💬</a>
 
 </body>
 </html>
+```
