@@ -13,11 +13,12 @@
             --navy: #081221;
             --royal: #00BFFF;
         }
+       .hero-bg {
+    background-image: linear-gradient(rgba(8,18,33,0.75), rgba(8,18,33,0.85)), url('factory photo.jpeg');
+    background-size: cover;
+    background-position: center;
+} 
         
-        .hero-bg {
-            background-image: linear-gradient(rgba(8, 18, 33, 0.75), rgba(8, 18, 33, 0.85)), url('https://files.oaiusercontent.com/file-GeaNM?se=2026-05-30T12%3A00%3A00Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D%221000474225.png%22');
-            background-size: cover;
-            background-position: center;
         }
         
         .logo-img {
