@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HELEX MINERALS PVT LTD - Premium Industrial Minerals Manufacturer & Exporter">
+    <title>HELEX MINERALS | Premium Industrial Minerals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #081221;
+            --royal: #00BFFF;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(8, 18, 33, 0.75), rgba(8, 18, 33, 0.85)), url('https://files.oaiusercontent.com/file-GeaNM?se=2026-05-30T12%3A00%3A00Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D%221000474225.png%22');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px -12px rgb(0 191 255 / 0.25);
+        }
+    </style>
+</head>
+<body class="bg-[#081221] text-white font-sans">
+
+    <!-- NAVBAR -->
+    <nav class="bg-[#081221]/95 backdrop-blur-md fixed w-full z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://files.oaiusercontent.com/file-D5lJW?se=2026-05-30T12%3A00%3A00Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D%221000474270.png%22" 
+                     alt="HELEX Logo" class="logo-img">
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-[#00BFFF]">About</a>
+                <a href="#products" class="hover:text-[#00BFFF]">Products</a>
+                <a href="#facility" class="hover:text-[#00BFFF]">Facility</a>
+                <a href="#contact" class="hover:text-[#00BFFF]">Contact</a>
+            </div>
+            
+            <a href="https://wa.me/919636272905" target="_blank" 
+               class="bg-green-500 px-6 py-3 rounded-full font-semibold flex items-center gap-2">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-bg h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 pt-20">
+            <div class="max-w-3xl">
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-6">
+                    HELEX MINERALS<br>
+                    <span class="text-[#00BFFF]">PVT LTD</span>
+                </h1>
+                <p class="text-2xl text-gray-200 mb-8">
+                    Premium Industrial Minerals Manufacturer & Exporter<br>
+                    From Rajasthan, India to the World
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+                            class="bg-[#00BFFF] text-black px-8 py-4 rounded-2xl font-bold text-lg">
+                        GET QUOTE
+                    </button>
+                    <button onclick="downloadBrochure()" 
+                            class="border border-white px-8 py-4 rounded-2xl font-medium text-lg">
+                        DOWNLOAD BROCHURE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-8">About HELEX MINERALS</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Helex Minerals Pvt Ltd is a trusted manufacturer and exporter of high-quality industrial minerals based in Asind, Bhilwara, Rajasthan.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://files.oaiusercontent.com/file-GeaNM?se=2026-05-30T12%3A00%3A00Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D%221000474225.png%22" 
+                         alt="HELEX Manufacturing Facility" class="rounded-3xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="py-24 bg-black/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Our Products</h2>
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Product Bag -->
+                <div class="product-card bg-[#0f1f33] rounded-3xl overflow-hidden">
+                    <img src="https://files.oaiusercontent.com/file-Ps6oC?se=2026-05-30T12%3A00%3A00Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D%221000474227.png%22" 
+                         alt="Feldspar Soda Powder" class="w-full h-96 object-contain bg-white p-8">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold">Soda Feldspar Powder</h3>
+                        <p class="text-[#00BFFF]">Mesh 200 • Premium Quality</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACILITY -->
+    <section id="facility" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Manufacturing Facility</h2>
+            <img src="https://files.oaiusercontent.com/file-GeaNM?se=2026-05-30T12%3A00%3A00Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D%221000474225.png%22" 
+                 alt="Factory Interior" class="w-full rounded-3xl">
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-[#0a1829]">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-8">Let's Build Business Together</h2>
+            <p class="text-2xl mb-12">+91 96362 72905 | info@helexminerals.com</p>
+            <a href="https://wa.me/919636272905" class="inline-block bg-green-500 text-black px-12 py-6 rounded-full text-xl font-bold">
+                Message on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 text-center text-gray-500">
+        <img src="https://files.oaiusercontent.com/file-D5lJW?se=2026-05-30T12%3A00%3A00Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D%221000474270.png%22" 
+             alt="HELEX Logo" class="h-16 mx-auto mb-4">
+        <p>© 2026 HELEX MINERALS PVT LTD. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function downloadBrochure() {
+            alert("Brochure is being prepared. Thank you for your interest in HELEX MINERALS!");
+        }
+    </script>
+</body>
+</html>
