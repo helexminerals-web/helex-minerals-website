@@ -119,6 +119,11 @@
             100% { transform: scale(3); opacity: 0; }
         }
     </style>
+
+    <!-- AI CHATBOT INTEGRATION PLACEHOLDER (Tidio Smart Widget) -->
+    <!-- Jab aap Tidio.com par free register karenge, toh woh aapko ek code denge jise aap is script src ki jagah paste kar sakte hain -->
+    <script src="//code.tidio.co/demo-placeholder-will-load-on-setup.js" async></script>
+
 </head>
 <body class="bg-[#081221] text-white font-sans overflow-x-hidden">
 
@@ -510,7 +515,7 @@
     <!-- INDUSTRIES SERVED -->
     <section id="quality" class="py-20 bg-black/40 reveal">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 relative section-header-center">Industries We Serve</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 relative section-header-center">Subsectors & Industries We Serve</h2>
             <p class="text-center text-gray-400 text-sm mb-16">Click an industry below to filter our dynamic product list or see detailed use cases</p>
             
             <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
@@ -544,7 +549,7 @@
     </section>
 
     <!-- GLOBAL REACH MAP SECTION -->
-    <section id="global" class="py-20 bg-[#07111f] reveal">
+    <section class="py-20 bg-[#07111f] reveal">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2 relative section-header-center">Global Reach & Logistics</h2>
             <p class="text-center text-gray-400 mb-12 max-w-xl mx-auto text-sm">Strategic transit distribution from mine rich tracts of Bhilwara to domestic industrial corridors and international trade gateways.</p>
@@ -669,7 +674,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-medium mb-1 text-gray-400">Requirement details</label>
-                            <textarea id="form-msg-box" name="message" rows="3" required placeholder="Tell us about your requirement (Mesh size, tonnage, application etc.)..." class="w-full bg-[#0a1829] border border-white/20 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white"></textarea>
+                            <textarea id="form-msg-box" name="message" rows="3" required placeholder="Tell us about your requirement (Mesh size, tonnage, application etc.)...." class="w-full bg-[#0a1829] border border-white/20 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-[#00BFFF] text-black py-4 rounded-xl font-bold text-sm hover:bg-white transition-colors uppercase tracking-wider">Send Inquiry</button>
                     </form>
@@ -802,7 +807,7 @@
             });
         });
 
-        // Smooth Reveal Animation on Scroll
+        // Reveal Elements smoothly on scroll
         window.addEventListener('scroll', () => {
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(el => {
