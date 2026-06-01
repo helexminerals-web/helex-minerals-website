@@ -119,24 +119,26 @@
             100% { transform: scale(3); opacity: 0; }
         }
     </style>
-
-    <!-- AI CHATBOT INTEGRATION PLACEHOLDER (Tidio Smart Widget) -->
-    <!-- Jab aap Tidio.com par free register karenge, toh woh aapko ek code denge jise aap is script src ki jagah paste kar sakte hain -->
-    <script src="//code.tidio.co/demo-placeholder-will-load-on-setup.js" async></script>
-
 </head>
 <body class="bg-[#081221] text-white font-sans overflow-x-hidden">
 
-    <!-- NAVBAR -->
-    <nav class="bg-[#081221] fixed w-full z-50 border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between relative">
+    <!-- NAVBAR (PROFESSIONAL FIXED HEADER WITH BRAND UPDATES) -->
+    <nav class="bg-[#081221]/90 backdrop-blur-md fixed w-full z-50 border-b border-white/10 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between relative">
             
-            <!-- Logo Section -->
-            <div class="flex items-center gap-3">
-                <img src="helex logo.jpeg" alt="Helex Logo" class="w-12 h-12 rounded-xl object-cover">
-                <div>
-                    <span class="text-2xl font-bold block leading-none">HELEX</span>
-                    <span class="text-[#00BFFF] text-xs font-semibold block tracking-wider">MINERALS</span>
+            <!-- Logo Section Upgraded to Unique Corporate Look -->
+            <div class="flex items-center gap-3.5 group cursor-pointer">
+                <div class="relative">
+                    <img src="helex logo.jpeg" alt="Helex Logo" class="w-12 h-12 rounded-xl object-cover border border-white/10 shadow-[0_0_15px_rgba(0,191,255,0.2)] group-hover:shadow-[0_0_20px_rgba(0,191,255,0.4)] transition-all duration-300">
+                    <div class="absolute inset-0 rounded-xl bg-gradient-to-tr from-[#00BFFF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <span class="text-2xl font-extrabold text-white tracking-tight leading-none group-hover:text-[#00BFFF] transition-colors duration-300">HELEX</span>
+                    <div class="h-6 w-[1px] bg-white/20 self-center hidden sm:block"></div>
+                    <div class="flex flex-col">
+                        <span class="text-[#00BFFF] text-xs font-bold tracking-[0.15em] block leading-none shadow-[0_0_10px_rgba(0,191,255,0.1)]">MINERALS</span>
+                        <span class="text-gray-400 text-[9px] font-medium tracking-[0.05em] mt-0.5 hidden sm:block">PVT LTD</span>
+                    </div>
                 </div>
             </div>
             
@@ -153,7 +155,7 @@
             <!-- Right Actions (WhatsApp & Quote) -->
             <div class="hidden sm:flex items-center gap-4">
                 <a href="https://wa.me/919636272905" target="_blank" 
-                   class="bg-[#00BFFF] text-black px-5 py-2.5 rounded-full font-semibold flex items-center gap-2 hover:bg-white transition-colors text-sm">
+                   class="bg-[#00BFFF] text-black px-5 py-2.5 rounded-full font-semibold flex items-center gap-2 hover:bg-white transition-colors text-sm shadow-[0_4px_15px_rgba(0,191,255,0.25)]">
                     <i class="fab fa-whatsapp text-lg"></i> WhatsApp
                 </a>
                 <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
@@ -217,7 +219,7 @@
                         <i class="fas fa-download"></i> DOWNLOAD BROCHURE
                     </a>
 
-                    <!-- Plant Tour Play Button Button -->
+                    <!-- Plant Tour Play Button -->
                     <button onclick="openVideoModal()" class="flex items-center gap-3 text-white hover:text-[#00BFFF] font-semibold transition ml-2">
                         <span class="w-12 h-12 bg-[#00BFFF]/10 border border-[#00BFFF]/40 flex items-center justify-center rounded-full text-[#00BFFF] animate-bounce"><i class="fas fa-play text-sm ml-0.5"></i></span>
                         Watch Plant Tour
@@ -674,7 +676,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-medium mb-1 text-gray-400">Requirement details</label>
-                            <textarea id="form-msg-box" name="message" rows="3" required placeholder="Tell us about your requirement (Mesh size, tonnage, application etc.)...." class="w-full bg-[#0a1829] border border-white/20 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white"></textarea>
+                            <textarea id="form-msg-box" name="message" rows="3" required placeholder="Tell us about your requirement (Mesh size, tonnage, application etc.)..." class="w-full bg-[#0a1829] border border-white/20 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-[#00BFFF] text-black py-4 rounded-xl font-bold text-sm hover:bg-white transition-colors uppercase tracking-wider">Send Inquiry</button>
                     </form>
@@ -903,5 +905,9 @@
             }, 500);
         });
     </script>
+    
+    <!-- SMART LIVE CHAT BOT CODE INTEGRATION -->
+    <script src="https://code.tidio.co/86ocvhybsbknlryhuyxnkf0qvyi9koog.js" async></script>
+
 </body>
 </html>
