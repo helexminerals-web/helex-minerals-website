@@ -30,13 +30,19 @@
             transform: translateY(-2px);
         }
         
+        /* Ultra Premium Product Card Effects */
         .product-card {
+            position: relative;
+            background: linear-gradient(145deg, #0f1f33, #0a1624);
+            border: 1px border;
+            border-color: rgba(255, 255, 255, 0.05);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px -12px rgb(0 191 255 / 0.25);
+            transform: translateY(-12px);
+            border-color: rgba(0, 191, 255, 0.4);
+            box-shadow: 0 20px 40px -15px rgb(0 191 255 / 0.3);
         }
         
         .section-header {
@@ -57,7 +63,6 @@
             font-variant-numeric: tabular-nums;
         }
 
-        /* Modal custom scrollbar appearance styling */
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
@@ -251,47 +256,80 @@
         </div>
     </section>
 
-    <!-- PRODUCTS SECTION -->
+    <!-- PRODUCTS SECTION (PREMIUM DESIGN UPGRADED) -->
     <section id="products" class="py-20 bg-black/20">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="section-header text-3xl sm:text-4xl font-bold mb-12">Our Core Products</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
                 <!-- Product 1 -->
-                <div class="product-card bg-[#0f1f33] rounded-3xl overflow-hidden border border-white/5">
-                    <img src="maal photo.jpeg" alt="Soda Feldspar Powder" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2">Soda Feldspar Powder</h3>
-                        <p class="text-gray-400 text-sm mb-6">Mesh 200 • Ceramic Grade • High Whiteness</p>
-                        <button class="w-full py-3 border border-[#00BFFF] text-[#00BFFF] rounded-xl font-medium hover:bg-[#00BFFF] hover:text-black transition-colors">Learn More</button>
+                <div class="product-card rounded-3xl overflow-hidden group">
+                    <div class="overflow-hidden relative h-64">
+                        <img src="maal photo.jpeg" alt="Soda Feldspar Powder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#081221] to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between min-h-[220px]">
+                        <div>
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-[#00BFFF] transition-colors">Soda Feldspar Powder</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Mesh 200 • Ceramic Grade • High Whiteness</p>
+                        </div>
+                        <button onclick="openIndustryModal('ceramic')" class="w-full py-3 mt-4 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-sm flex items-center justify-center gap-2 group-hover:bg-[#00BFFF] group-hover:text-black group-hover:border-[#00BFFF] transition-all duration-300 uppercase tracking-wider">
+                            View Specifications <i class="fas fa-arrow-right text-xs"></i>
+                        </button>
                     </div>
                 </div>
+
                 <!-- Product 2 -->
-                <div class="product-card bg-[#0f1f33] rounded-3xl overflow-hidden border border-white/5">
-                    <img src="bag photo.jpeg" alt="Feldspar Powder Bag" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2">Feldspar Powder Bag</h3>
-                        <p class="text-gray-400 text-sm mb-6">Premium Packing • Ceramic Grade • Export Quality</p>
-                        <button class="w-full py-3 border border-[#00BFFF] text-[#00BFFF] rounded-xl font-medium hover:bg-[#00BFFF] hover:text-black transition-colors">Learn More</button>
+                <div class="product-card rounded-3xl overflow-hidden group">
+                    <div class="overflow-hidden relative h-64">
+                        <img src="bag photo.jpeg" alt="Feldspar Powder Bag" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#081221] to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between min-h-[220px]">
+                        <div>
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-[#00BFFF] transition-colors">Feldspar Powder Bag</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Premium Packing • Ceramic Grade • Export Quality</p>
+                        </div>
+                        <button onclick="openIndustryModal('ceramic')" class="w-full py-3 mt-4 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-sm flex items-center justify-center gap-2 group-hover:bg-[#00BFFF] group-hover:text-black group-hover:border-[#00BFFF] transition-all duration-300 uppercase tracking-wider">
+                            View Specifications <i class="fas fa-arrow-right text-xs"></i>
+                        </button>
                     </div>
                 </div>
+
                 <!-- Product 3 -->
-                <div class="product-card bg-[#0f1f33] rounded-3xl overflow-hidden border border-white/5">
-                    <img src="silica sand.JPG" alt="Silica Sand" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2">Silica Sand</h3>
-                        <p class="text-gray-400 text-sm mb-6">Multiple Grades • Foundry & Construction</p>
-                        <button class="w-full py-3 border border-[#00BFFF] text-[#00BFFF] rounded-xl font-medium hover:bg-[#00BFFF] hover:text-black transition-colors">Learn More</button>
+                <div class="product-card rounded-3xl overflow-hidden group">
+                    <div class="overflow-hidden relative h-64">
+                        <img src="silica sand.JPG" alt="Silica Sand" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#081221] to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between min-h-[220px]">
+                        <div>
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-[#00BFFF] transition-colors">Silica Sand</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Multiple Grades • Foundry & Construction</p>
+                        </div>
+                        <button onclick="openIndustryModal('glass')" class="w-full py-3 mt-4 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-sm flex items-center justify-center gap-2 group-hover:bg-[#00BFFF] group-hover:text-black group-hover:border-[#00BFFF] transition-all duration-300 uppercase tracking-wider">
+                            View Specifications <i class="fas fa-arrow-right text-xs"></i>
+                        </button>
                     </div>
                 </div>
+
                 <!-- Product 4 -->
-                <div class="product-card bg-[#0f1f33] rounded-3xl overflow-hidden border border-white/5">
-                    <img src="feldspar lumps.jpeg" alt="Feldspar Lumps" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2">Feldspar Lumps</h3>
-                        <p class="text-gray-400 text-sm mb-6">Soda & Potash Feldspar</p>
-                        <button class="w-full py-3 border border-[#00BFFF] text-[#00BFFF] rounded-xl font-medium hover:bg-[#00BFFF] hover:text-black transition-colors">Learn More</button>
+                <div class="product-card rounded-3xl overflow-hidden group">
+                    <div class="overflow-hidden relative h-64">
+                        <img src="feldspar lumps.jpeg" alt="Feldspar Lumps" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#081221] to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between min-h-[220px]">
+                        <div>
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-[#00BFFF] transition-colors">Feldspar Lumps</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Soda & Potash Feldspar Lumps</p>
+                        </div>
+                        <button onclick="openIndustryModal('ceramic')" class="w-full py-3 mt-4 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-sm flex items-center justify-center gap-2 group-hover:bg-[#00BFFF] group-hover:text-black group-hover:border-[#00BFFF] transition-all duration-300 uppercase tracking-wider">
+                            View Specifications <i class="fas fa-arrow-right text-xs"></i>
+                        </button>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -322,7 +360,7 @@
     <!-- WHY CHOOSE US -->
     <section class="py-20 bg-gradient-to-b from-black/40 to-transparent">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:height-3px after:bg-[#00BFFF]">Why Choose HELEX MINERALS...</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:height-3px after:bg-[#00BFFF]">Why Choose HELEX MINERALS PVT LTD</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="p-8 border border-white/10 rounded-3xl bg-[#081221]/40">
@@ -352,12 +390,12 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
                 <div class="bg-[#0f1f33]/40 p-4 rounded-2xl border border-white/5">
                     <img src="helex dire.jpeg" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-2 border-[#00BFFF]/50">
-                    <h4 class="font-semibold text-base sm:text-lg">RP Singh</h4> <!-- -->
+                    <h4 class="font-semibold text-base sm:text-lg">RP Singh</h4>
                     <p class="text-[#00BFFF] text-xs sm:text-sm">Director</p>
                 </div>
                 <div class="bg-[#0f1f33]/40 p-4 rounded-2xl border border-white/5">
                     <img src="dev photo.jpeg" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-2 border-[#00BFFF]/50">
-                    <h4 class="font-semibold text-base sm:text-lg">Dev Rathore</h4> <!-- -->
+                    <h4 class="font-semibold text-base sm:text-lg">Dev Rathore</h4>
                     <p class="text-[#00BFFF] text-xs sm:text-sm">Chief Operating Officer</p>
                 </div>
                 <div class="bg-[#0f1f33]/40 p-4 rounded-2xl border border-white/5">
@@ -379,30 +417,29 @@
         </div>
     </section>
 
-    <!-- INDUSTRIES SERVED (Clickable Boxes Added Here) -->
+    <!-- INDUSTRIES SERVED -->
     <section id="quality" class="py-20 bg-black/40">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:height-3px after:bg-[#00BFFF]">Industries We Serve</h2>
             
-            <!-- Cards par custom click trigger lagaye hain -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-                <div onclick="openIndustryModal('ceramic')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="openIndustryModal('ceramic')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-mug-hot text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Ceramic</p>
                 </div>
-                <div onclick="openIndustryModal('glass')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="openIndustryModal('glass')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-glass-cheers text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Glass</p>
                 </div>
-                <div onclick="openIndustryModal('paint')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="openIndustryModal('paint')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-paint-brush text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Paint</p>
                 </div>
-                <div onclick="openIndustryModal('construction')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="openIndustryModal('construction')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-building text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Construction</p>
                 </div>
-                <div onclick="openIndustryModal('foundry')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="openIndustryModal('foundry')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-industry text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Foundry</p>
                 </div>
@@ -418,16 +455,16 @@
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 <div class="bg-[#0a1829] rounded-3xl p-6 text-center border border-white/5">
-                    <img src="vinayak enterprises.jpeg" class="h-20 mx-auto object-contain mb-4" alt="Vinayak Enterprises"> <!-- -->
-                    <h3 class="font-semibold text-sm sm:text-base text-white">Vinayak Enterprises</h3> <!-- -->
+                    <img src="vinayak enterprises.jpeg" class="h-20 mx-auto object-contain mb-4" alt="Vinayak Enterprises">
+                    <h3 class="font-semibold text-sm sm:text-base text-white">Vinayak Enterprises</h3>
                 </div>
                 <div class="bg-[#0a1829] rounded-3xl p-6 text-center border border-white/5">
                     <img src="aadinath.jpeg" class="h-20 mx-auto object-contain mb-4" alt="Aadinath Minerals">
                     <h3 class="font-semibold text-sm sm:text-base text-white">Aadinath Minerals</h3>
                 </div>
                 <div class="bg-[#0a1829] rounded-3xl p-6 text-center border border-white/5">
-                    <img src="vinayak minerals.jpeg" class="h-20 mx-auto object-contain mb-4" alt="Vinayak Minerals"> <!-- -->
-                    <h3 class="font-semibold text-sm sm:text-base text-white">Vinayak Minerals</h3> <!-- -->
+                    <img src="vinayak minerals.jpeg" class="h-20 mx-auto object-contain mb-4" alt="Vinayak Minerals">
+                    <h3 class="font-semibold text-sm sm:text-base text-white">Vinayak Minerals</h3>
                 </div>
                 <div class="bg-[#0a1829] rounded-3xl p-6 text-center border border-white/5">
                     <img src="vinayak mines.jpeg" class="h-20 mx-auto object-contain mb-4" alt="Vinayak Mines">
@@ -532,17 +569,14 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-
-    <!-- ================= CUSTOM MODAL POPUPS FOR INDUSTRIES ================= -->
+    <!-- CUSTOM MODAL POPUPS FOR INDUSTRIES -->
     <div id="industry-modal" class="hidden fixed inset-0 w-full h-full bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-all duration-300">
         <div class="bg-[#0f1f33] border border-white/10 w-full max-w-2xl rounded-3xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
             
-            <!-- Close Button -->
             <button onclick="closeIndustryModal()" class="absolute top-5 right-5 text-gray-400 hover:text-[#00BFFF] text-2xl transition-colors">
                 <i class="fas fa-times"></i>
             </button>
 
-            <!-- Dynamic Icon & Heading Inside Modal -->
             <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
                 <div id="modal-icon-container" class="text-4xl text-[#00BFFF]">
                     <i id="modal-icon" class="fas fa-mug-hot"></i>
@@ -550,12 +584,8 @@
                 <h3 id="modal-title" class="text-2xl md:text-3xl font-bold text-white">Industry Details</h3>
             </div>
 
-            <!-- Dynamic Content Area -->
-            <div id="modal-body" class="text-gray-300 text-base md:text-lg leading-relaxed space-y-4">
-                <!-- Content gets filled by JS functions -->
-            </div>
+            <div id="modal-body" class="text-gray-300 text-base md:text-lg leading-relaxed space-y-4"></div>
 
-            <!-- Action Call inside Modal -->
             <div class="mt-8 flex flex-wrap gap-4 border-t border-white/5 pt-6">
                 <button onclick="closeIndustryModal(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'});" class="bg-[#00BFFF] text-black px-5 py-2.5 rounded-xl font-bold text-sm uppercase tracking-wide">
                     Get Quote for this Industry
@@ -564,10 +594,8 @@
         </div>
     </div>
 
-
-    <!-- JAVASCRIPT FOR TOGGLE & COUNTERS & MODALS -->
+    <!-- JAVASCRIPT -->
     <script>
-        // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -590,7 +618,6 @@
             });
         });
 
-        // Counter Animation Function
         function animateCounter(id, target, duration = 2000) {
             const element = document.getElementById(id);
             if (!element) return;
@@ -616,8 +643,6 @@
             }, 500);
         });
 
-
-        // Industry Data Bank object store
         const industryData = {
             ceramic: {
                 title: "Ceramic Industry Solutions",
@@ -686,7 +711,6 @@
             }
         };
 
-        // Modal Control Functions
         function openIndustryModal(key) {
             const modal = document.getElementById('industry-modal');
             const title = document.getElementById('modal-title');
@@ -697,20 +721,17 @@
                 title.innerHTML = industryData[key].title;
                 icon.className = industryData[key].icon;
                 body.innerHTML = industryData[key].content;
-                
-                // Show modal with animation smooth
                 modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Stop background scrolling
+                document.body.style.overflow = 'hidden';
             }
         }
 
         function closeIndustryModal() {
             const modal = document.getElementById('industry-modal');
             modal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Restore background scrolling
+            document.body.style.overflow = 'auto';
         }
 
-        // Close Modal if user clicks on the dark background mask
         document.getElementById('industry-modal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeIndustryModal();
