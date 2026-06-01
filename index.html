@@ -14,6 +14,10 @@
             --royal: #00BFFF;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+
         .hero-bg {
             background-image: linear-gradient(rgba(8,18,33,0.8), rgba(8,18,33,0.9)), url('mines sss.JPG');
             background-size: cover;
@@ -30,12 +34,11 @@
             transform: translateY(-2px);
         }
         
-        /* Ultra Premium Product Card Effects */
+        /* Premium Product Card Effects */
         .product-card {
             position: relative;
             background: linear-gradient(145deg, #0f1f33, #0a1624);
-            border: 1px border;
-            border-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
@@ -58,6 +61,17 @@
             height: 3px;
             background: linear-gradient(to right, #00BFFF, #081221);
         }
+
+        .section-header-center:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #081221, #00BFFF, #081221);
+        }
         
         .counter {
             font-variant-numeric: tabular-nums;
@@ -72,6 +86,37 @@
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #00BFFF;
             border-radius: 10px;
+        }
+
+        /* Smooth Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Map Pulse Effect */
+        .map-dot {
+            position: relative;
+        }
+        .map-dot::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: #00BFFF;
+            border-radius: 50%;
+            animation: map-pulse 2s infinite;
+        }
+        @keyframes map-pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(3); opacity: 0; }
         }
     </style>
 </head>
@@ -156,7 +201,7 @@
                     From the mineral-rich lands of Rajasthan to the world. High purity Quartz, Feldspar & Silica for global industries. Trusted supplier of premium industrial minerals with consistent quality, reliable delivery, and customer-focused service.
                 </p>
                 
-                <div class="flex flex-wrap gap-4">
+                <div class="flex flex-wrap gap-4 items-center">
                     <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
                             class="bg-[#00BFFF] text-black px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 transition-all flex items-center gap-3">
                         <i class="fas fa-paper-plane"></i> GET QUOTE
@@ -166,6 +211,12 @@
                        class="border-2 border-white/70 hover:border-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-medium text-base sm:text-lg transition flex items-center gap-3">
                         <i class="fas fa-download"></i> DOWNLOAD BROCHURE
                     </a>
+
+                    <!-- Plant Tour Play Button Button -->
+                    <button onclick="openVideoModal()" class="flex items-center gap-3 text-white hover:text-[#00BFFF] font-semibold transition ml-2">
+                        <span class="w-12 h-12 bg-[#00BFFF]/10 border border-[#00BFFF]/40 flex items-center justify-center rounded-full text-[#00BFFF] animate-bounce"><i class="fas fa-play text-sm ml-0.5"></i></span>
+                        Watch Plant Tour
+                    </button>
                 </div>
             </div>
 
@@ -193,7 +244,7 @@
     </section>
 
     <!-- COMPANY HIGHLIGHTS -->
-    <section class="py-16 bg-black/40">
+    <section class="py-16 bg-black/40 reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                 <div class="bg-[#0f1f33] p-6 sm:p-8 rounded-3xl text-center hover:bg-[#1a2a42] transition-all border border-white/5">
@@ -225,7 +276,7 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="py-20">
+    <section id="about" class="py-20 reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div>
@@ -256,14 +307,24 @@
         </div>
     </section>
 
-    <!-- PRODUCTS SECTION (PREMIUM DESIGN UPGRADED) -->
-    <section id="products" class="py-20 bg-black/20">
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="py-20 bg-black/20 reveal">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-header text-3xl sm:text-4xl font-bold mb-12">Our Core Products</h2>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+                <div>
+                    <h2 class="section-header text-3xl sm:text-4xl font-bold">Our Core Products</h2>
+                </div>
+                <!-- Filter Badge Info -->
+                <div id="filter-status" class="hidden bg-[#00BFFF]/10 border border-[#00BFFF]/30 text-[#00BFFF] text-xs font-semibold px-4 py-1.5 rounded-full flex items-center gap-2">
+                    <span>Showing filtered minerals</span>
+                    <button onclick="resetProductFilter()" class="underline font-bold text-white hover:text-[#00BFFF] ml-1">Clear Filter</button>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 
                 <!-- Product 1 -->
-                <div class="product-card rounded-3xl overflow-hidden group">
+                <div id="prod-feldspar-pow" class="product-card rounded-3xl overflow-hidden group transition-all duration-300">
                     <div class="overflow-hidden relative h-64">
                         <img src="maal photo.jpeg" alt="Soda Feldspar Powder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#081221] to-transparent opacity-60"></div>
@@ -273,14 +334,19 @@
                             <h3 class="font-bold text-xl mb-2 text-white group-hover:text-[#00BFFF] transition-colors">Soda Feldspar Powder</h3>
                             <p class="text-gray-400 text-sm leading-relaxed">Mesh 200 • Ceramic Grade • High Whiteness</p>
                         </div>
-                        <button onclick="openIndustryModal('ceramic')" class="w-full py-3 mt-4 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-sm flex items-center justify-center gap-2 group-hover:bg-[#00BFFF] group-hover:text-black group-hover:border-[#00BFFF] transition-all duration-300 uppercase tracking-wider">
-                            View Specifications <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <div class="flex flex-col gap-2 mt-4">
+                            <button onclick="openIndustryModal('ceramic')" class="w-full py-2.5 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-xs group-hover:bg-[#00BFFF] group-hover:text-black transition-all uppercase tracking-wider">
+                                View Specifications <i class="fas fa-arrow-right text-xs ml-1"></i>
+                            </button>
+                            <button onclick="requestSample('Soda Feldspar Powder')" class="w-full py-1.5 text-xs text-gray-400 hover:text-white transition-all text-center underline">
+                                Request Free Sample
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card rounded-3xl overflow-hidden group">
+                <div id="prod-feldspar-bag" class="product-card rounded-3xl overflow-hidden group transition-all duration-300">
                     <div class="overflow-hidden relative h-64">
                         <img src="bag photo.jpeg" alt="Feldspar Powder Bag" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#081221] to-transparent opacity-60"></div>
@@ -290,14 +356,19 @@
                             <h3 class="font-bold text-xl mb-2 text-white group-hover:text-[#00BFFF] transition-colors">Feldspar Powder Bag</h3>
                             <p class="text-gray-400 text-sm leading-relaxed">Premium Packing • Ceramic Grade • Export Quality</p>
                         </div>
-                        <button onclick="openIndustryModal('ceramic')" class="w-full py-3 mt-4 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-sm flex items-center justify-center gap-2 group-hover:bg-[#00BFFF] group-hover:text-black group-hover:border-[#00BFFF] transition-all duration-300 uppercase tracking-wider">
-                            View Specifications <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <div class="flex flex-col gap-2 mt-4">
+                            <button onclick="openIndustryModal('ceramic')" class="w-full py-2.5 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-xs group-hover:bg-[#00BFFF] group-hover:text-black transition-all uppercase tracking-wider">
+                                View Specifications <i class="fas fa-arrow-right text-xs ml-1"></i>
+                            </button>
+                            <button onclick="requestSample('Feldspar Powder Bag')" class="w-full py-1.5 text-xs text-gray-400 hover:text-white transition-all text-center underline">
+                                Request Free Sample
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card rounded-3xl overflow-hidden group">
+                <div id="prod-silica" class="product-card rounded-3xl overflow-hidden group transition-all duration-300">
                     <div class="overflow-hidden relative h-64">
                         <img src="silica sand.JPG" alt="Silica Sand" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#081221] to-transparent opacity-60"></div>
@@ -307,14 +378,19 @@
                             <h3 class="font-bold text-xl mb-2 text-white group-hover:text-[#00BFFF] transition-colors">Silica Sand</h3>
                             <p class="text-gray-400 text-sm leading-relaxed">Multiple Grades • Foundry & Construction</p>
                         </div>
-                        <button onclick="openIndustryModal('glass')" class="w-full py-3 mt-4 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-sm flex items-center justify-center gap-2 group-hover:bg-[#00BFFF] group-hover:text-black group-hover:border-[#00BFFF] transition-all duration-300 uppercase tracking-wider">
-                            View Specifications <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <div class="flex flex-col gap-2 mt-4">
+                            <button onclick="openIndustryModal('glass')" class="w-full py-2.5 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-xs group-hover:bg-[#00BFFF] group-hover:text-black transition-all uppercase tracking-wider">
+                                View Specifications <i class="fas fa-arrow-right text-xs ml-1"></i>
+                            </button>
+                            <button onclick="requestSample('Silica Sand')" class="w-full py-1.5 text-xs text-gray-400 hover:text-white transition-all text-center underline">
+                                Request Free Sample
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card rounded-3xl overflow-hidden group">
+                <div id="prod-lumps" class="product-card rounded-3xl overflow-hidden group transition-all duration-300">
                     <div class="overflow-hidden relative h-64">
                         <img src="feldspar lumps.jpeg" alt="Feldspar Lumps" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#081221] to-transparent opacity-60"></div>
@@ -324,9 +400,14 @@
                             <h3 class="font-bold text-xl mb-2 text-white group-hover:text-[#00BFFF] transition-colors">Feldspar Lumps</h3>
                             <p class="text-gray-400 text-sm leading-relaxed">Soda & Potash Feldspar Lumps</p>
                         </div>
-                        <button onclick="openIndustryModal('ceramic')" class="w-full py-3 mt-4 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-sm flex items-center justify-center gap-2 group-hover:bg-[#00BFFF] group-hover:text-black group-hover:border-[#00BFFF] transition-all duration-300 uppercase tracking-wider">
-                            View Specifications <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <div class="flex flex-col gap-2 mt-4">
+                            <button onclick="openIndustryModal('ceramic')" class="w-full py-2.5 border border-[#00BFFF]/40 text-[#00BFFF] rounded-xl font-semibold text-xs group-hover:bg-[#00BFFF] group-hover:text-black transition-all uppercase tracking-wider">
+                                View Specifications <i class="fas fa-arrow-right text-xs ml-1"></i>
+                            </button>
+                            <button onclick="requestSample('Feldspar Lumps')" class="w-full py-1.5 text-xs text-gray-400 hover:text-white transition-all text-center underline">
+                                Request Free Sample
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -335,7 +416,7 @@
     </section>
 
     <!-- MANUFACTURING FACILITY -->
-    <section id="facility" class="py-20">
+    <section id="facility" class="py-20 reveal">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="section-header text-3xl sm:text-4xl font-bold mb-4">State-of-the-Art Production Facility</h2>
             <p class="text-gray-400 mb-12">Located in Asind, Bhilwara - The Mineral Hub of Rajasthan</p>
@@ -349,43 +430,52 @@
                     <img src="wearhouse.JPG" class="w-full h-64 object-cover" alt="Warehouse">
                     <div class="p-6 font-semibold text-center">Automated Packaging</div>
                 </div>
-                <div class="rounded-3xl overflow-hidden border border-white/5 bg-[#0f1f33]">
+                <div class="rounded-3xl overflow-hidden border border-white/5 bg-[#0f1f33] relative group">
                     <img src="lab.png" class="w-full h-64 object-cover" alt="Quality Control Lab">
-                    <div class="p-6 font-semibold text-center">Quality Control Lab</div>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300">
+                        <button onclick="openTdsModal()" class="bg-[#00BFFF] text-black px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider"><i class="fas fa-file-alt mr-2"></i>View Lab Analysis Report</button>
+                    </div>
+                    <div class="p-6 bg-[#0f1f33] font-semibold text-center">Quality Control Lab</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- WHY CHOOSE US -->
-    <section class="py-20 bg-gradient-to-b from-black/40 to-transparent">
+    <section class="py-20 bg-gradient-to-b from-black/40 to-transparent reveal">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:height-3px after:bg-[#00BFFF]">Why Choose HELEX MINERALS PVT LTD</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative section-header-center">Why Choose HELEX MINERALS PVT LTD</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-8 border border-white/10 rounded-3xl bg-[#081221]/40">
-                    <i class="fas fa-gem text-4xl text-[#00BFFF] mb-6 block"></i>
+                <div class="p-8 border border-white/10 rounded-3xl bg-[#081221]/40 hover:border-[#00BFFF]/30 transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-gem text-4xl text-[#00BFFF]"></i>
+                        <button onclick="openTdsModal()" class="text-xs text-[#00BFFF] border border-[#00BFFF]/30 px-3 py-1 rounded-full hover:bg-[#00BFFF] hover:text-black transition-colors">TDS Report</button>
+                    </div>
                     <h4 class="font-semibold text-xl mb-3">High Purity Minerals</h4>
-                    <p class="text-gray-400">Consistently above industry standards with rigorous testing.</p>
+                    <p class="text-gray-400">Consistently above industry standards with rigorous analysis setup.</p>
                 </div>
-                <div class="p-8 border border-white/10 rounded-3xl bg-[#081221]/40">
+                <div class="p-8 border border-white/10 rounded-3xl bg-[#081221]/40 hover:border-[#00BFFF]/30 transition-all">
                     <i class="fas fa-cogs text-4xl text-[#00BFFF] mb-6 block"></i>
                     <h4 class="font-semibold text-xl mb-3">Advanced Technology</h4>
-                    <p class="text-gray-400">Modern grinding and classification systems.</p>
+                    <p class="text-gray-400">Modern grinding and multi-stage classification mesh systems.</p>
                 </div>
-                <div class="p-8 border border-white/10 rounded-3xl bg-[#081221]/40">
-                    <i class="fas fa-clock text-4xl text-[#00BFFF] mb-6 block"></i>
+                <div class="p-8 border border-white/10 rounded-3xl bg-[#081221]/40 hover:border-[#00BFFF]/30 transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-clock text-4xl text-[#00BFFF]"></i>
+                        <span class="text-[10px] bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-md uppercase font-bold tracking-wider">ISO Certified</span>
+                    </div>
                     <h4 class="font-semibold text-xl mb-3">Timely Delivery</h4>
-                    <p class="text-gray-400">Reliable logistics network across India & globe.</p>
+                    <p class="text-gray-400">Reliable logistics network mapped across domestic and international ports.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- LEADERSHIP TEAM -->
-    <section class="py-20">
+    <section class="py-20 reveal">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:height-3px after:bg-[#00BFFF]">Our Leadership Team</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative section-header-center">Our Leadership Team</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
                 <div class="bg-[#0f1f33]/40 p-4 rounded-2xl border border-white/5">
@@ -418,39 +508,89 @@
     </section>
 
     <!-- INDUSTRIES SERVED -->
-    <section id="quality" class="py-20 bg-black/40">
+    <section id="quality" class="py-20 bg-black/40 reveal">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:height-3px after:bg-[#00BFFF]">Industries We Serve</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 relative section-header-center">Industries We Serve</h2>
+            <p class="text-center text-gray-400 text-sm mb-16">Click an industry below to filter our dynamic product list or see detailed use cases</p>
             
             <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-                <div onclick="openIndustryModal('ceramic')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="filterProducts('ceramic')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-mug-hot text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Ceramic</p>
+                    <span class="text-[10px] text-gray-500 group-hover:text-[#00BFFF]/80 block mt-2 underline">View Details & Filter</span>
                 </div>
-                <div onclick="openIndustryModal('glass')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="filterProducts('glass')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-glass-cheers text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Glass</p>
+                    <span class="text-[10px] text-gray-500 group-hover:text-[#00BFFF]/80 block mt-2 underline">View Details & Filter</span>
                 </div>
-                <div onclick="openIndustryModal('paint')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="filterProducts('paint')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-paint-brush text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Paint</p>
+                    <span class="text-[10px] text-gray-500 group-hover:text-[#00BFFF]/80 block mt-2 underline">View Details & Filter</span>
                 </div>
-                <div onclick="openIndustryModal('construction')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="filterProducts('construction')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-building text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Construction</p>
+                    <span class="text-[10px] text-gray-500 group-hover:text-[#00BFFF]/80 block mt-2 underline">View Details & Filter</span>
                 </div>
-                <div onclick="openIndustryModal('foundry')" class="p-6 bg-[#0a1829] rounded-3xl border border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
+                <div onclick="filterProducts('foundry')" class="p-6 bg-[#0a1829] rounded-3xl border border-white/5 cursor-pointer hover:bg-[#112741] hover:border-[#00BFFF]/50 transition-all group">
                     <i class="fas fa-industry text-4xl mb-4 text-[#00BFFF] group-hover:scale-110 transition-transform"></i>
                     <p class="font-medium group-hover:text-[#00BFFF] transition-colors">Foundry</p>
+                    <span class="text-[10px] text-gray-500 group-hover:text-[#00BFFF]/80 block mt-2 underline">View Details & Filter</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLOBAL REACH MAP SECTION -->
+    <section id="global" class="py-20 bg-[#07111f] reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2 relative section-header-center">Global Reach & Logistics</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-xl mx-auto text-sm">Strategic transit distribution from mine rich tracts of Bhilwara to domestic industrial corridors and international trade gateways.</p>
+
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="space-y-6">
+                    <div class="bg-[#0a1829] p-6 rounded-2xl border border-white/5">
+                        <div class="text-[#00BFFF] font-bold text-xl mb-1">Mundra & Kandla Ports</div>
+                        <p class="text-xs text-gray-400">Direct fast logistics setups for frictionless international mineral exports dispatch channels.</p>
+                    </div>
+                    <div class="bg-[#0a1829] p-6 rounded-2xl border border-white/5">
+                        <div class="text-[#00BFFF] font-bold text-xl mb-1">Pan-India Freight</div>
+                        <p class="text-xs text-gray-400">Strategic transport routes handling massive volumetric bulk freight requirements effortlessly.</p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 relative h-72 sm:h-96 border border-white/10 rounded-3xl bg-black/40 overflow-hidden flex items-center justify-center p-6">
+                    <div class="absolute inset-0 bg-radial-gradient from-transparent to-black/30"></div>
+                    
+                    <div class="w-full h-full opacity-20 relative border border-dashed border-white/10 rounded-2xl flex items-center justify-center">
+                        <div class="w-3/4 h-3/4 rounded-full border border-dashed border-[#00BFFF]/40 animate-spin" style="animation-duration: 25s;"></div>
+                        <div class="w-1/2 h-1/2 rounded-full border border-dashed border-white/20 animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
+                    </div>
+
+                    <div class="absolute flex flex-col items-center">
+                        <div class="w-4 h-4 bg-[#00BFFF] rounded-full map-dot"></div>
+                        <span class="text-xs font-bold mt-2 bg-[#081221] px-2 py-0.5 rounded border border-white/10">Asind Hub (Bhilwara)</span>
+                    </div>
+
+                    <div class="absolute top-1/4 left-1/4 flex flex-col items-center opacity-80">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                        <span class="text-[10px] text-gray-400">Port Gateways</span>
+                    </div>
+                    <div class="absolute bottom-1/4 right-1/4 flex flex-col items-center opacity-80">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                        <span class="text-[10px] text-gray-400">Industrial Buyers</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- THE HELEX GROUP -->
-    <section id="global" class="py-20 bg-[#07111f]">
+    <section class="py-20 bg-[#081221] reveal">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-2">The Helex Group</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-2 relative section-header-center">The Helex Group</h2>
             <p class="text-center text-gray-400 mb-12 text-base sm:text-lg">Driving Growth Through Diversified Mineral Ventures</p>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -479,7 +619,7 @@
     </section> 
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-20 bg-[#0a1829]">
+    <section id="contact" class="py-20 bg-[#0a1829] reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
                 <div>
@@ -506,22 +646,32 @@
                     </div>
                 </div>
                 
-                <!-- Inquiry Form -->
+                <!-- Form Area -->
                 <div class="bg-[#081221] p-8 rounded-3xl border border-white/10 shadow-xl">
                     <form action="https://formsubmit.co/helexminerals@gmail.com" method="POST" class="space-y-5">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-gray-300">Company Name</label>
-                            <input type="text" name="company" required placeholder="Your Company Name" class="w-full bg-[#0a1829] border border-white/20 p-4 rounded-xl focus:outline-none focus:border-[#00BFFF] text-white">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium mb-1 text-gray-400">Company Name</label>
+                                <input type="text" name="company" required placeholder="Your Company" class="w-full bg-[#0a1829] border border-white/20 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium mb-1 text-gray-400">Inquiry Type</label>
+                                <select id="inquiry-reason" name="inquiry_type" class="w-full bg-[#0a1829] border border-white/20 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white">
+                                    <option value="Commercial Quote">Get Commercial Quote</option>
+                                    <option value="Request Free Testing Sample">Request Free Testing Sample</option>
+                                    <option value="Technical Specs Inquiry">Technical Specs Inquiry</option>
+                                </select>
+                            </div>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2 text-gray-300">Business Email</label>
-                            <input type="email" name="email" required placeholder="name@company.com" class="w-full bg-[#0a1829] border border-white/20 p-4 rounded-xl focus:outline-none focus:border-[#00BFFF] text-white">
+                            <label class="block text-xs font-medium mb-1 text-gray-400">Business Email</label>
+                            <input type="email" name="email" required placeholder="name@company.com" class="w-full bg-[#0a1829] border border-white/20 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2 text-gray-300">Requirement Details</label>
-                            <textarea name="message" rows="4" required placeholder="Tell us about your requirement (Mesh size, tonnage, application etc.)..." class="w-full bg-[#0a1829] border border-white/20 p-4 rounded-xl focus:outline-none focus:border-[#00BFFF] text-white"></textarea>
+                            <label class="block text-xs font-medium mb-1 text-gray-400">Requirement details</label>
+                            <textarea id="form-msg-box" name="message" rows="3" required placeholder="Tell us about your requirement (Mesh size, tonnage, application etc.)..." class="w-full bg-[#0a1829] border border-white/20 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-[#00BFFF] text-black py-4 rounded-xl font-bold text-base hover:bg-white transition-colors uppercase tracking-wider">Send Inquiry</button>
+                        <button type="submit" class="w-full bg-[#00BFFF] text-black py-4 rounded-xl font-bold text-sm hover:bg-white transition-colors uppercase tracking-wider">Send Inquiry</button>
                     </form>
                 </div>
             </div>
@@ -569,23 +719,18 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CUSTOM MODAL POPUPS FOR INDUSTRIES -->
+
+    <!-- INDUSTRIES VIEW MODAL WINDOW -->
     <div id="industry-modal" class="hidden fixed inset-0 w-full h-full bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-all duration-300">
         <div class="bg-[#0f1f33] border border-white/10 w-full max-w-2xl rounded-3xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
-            
             <button onclick="closeIndustryModal()" class="absolute top-5 right-5 text-gray-400 hover:text-[#00BFFF] text-2xl transition-colors">
                 <i class="fas fa-times"></i>
             </button>
-
             <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
-                <div id="modal-icon-container" class="text-4xl text-[#00BFFF]">
-                    <i id="modal-icon" class="fas fa-mug-hot"></i>
-                </div>
+                <div id="modal-icon-container" class="text-4xl text-[#00BFFF]"><i id="modal-icon" class="fas fa-mug-hot"></i></div>
                 <h3 id="modal-title" class="text-2xl md:text-3xl font-bold text-white">Industry Details</h3>
             </div>
-
             <div id="modal-body" class="text-gray-300 text-base md:text-lg leading-relaxed space-y-4"></div>
-
             <div class="mt-8 flex flex-wrap gap-4 border-t border-white/5 pt-6">
                 <button onclick="closeIndustryModal(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'});" class="bg-[#00BFFF] text-black px-5 py-2.5 rounded-xl font-bold text-sm uppercase tracking-wide">
                     Get Quote for this Industry
@@ -594,7 +739,51 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
+
+    <!-- TECHNICAL TDS ANALYSIS POPUP MODAL -->
+    <div id="tds-modal" class="hidden fixed inset-0 w-full h-full bg-black/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div class="bg-[#0f1f33] border border-[#00BFFF]/20 w-full max-w-2xl rounded-3xl p-6 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeTdsModal()" class="absolute top-5 right-5 text-gray-400 hover:text-[#00BFFF] text-xl"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold text-white border-b border-white/10 pb-3 mb-4 flex items-center gap-2 text-[#00BFFF]"><i class="fas fa-flask"></i> Technical Data Sheet (TDS Summary)</h3>
+            
+            <div class="space-y-6 text-sm">
+                <div>
+                    <h4 class="font-bold text-white mb-2 text-xs uppercase tracking-wider text-gray-400">1. Premium Quartz Powder Composition</h4>
+                    <div class="bg-black/30 p-3 rounded-xl border border-white/5 space-y-1">
+                        <div class="flex justify-between"><span>Silica (SiO₂) Content</span><span class="font-bold text-[#00BFFF]">99.5% - 99.8%</span></div>
+                        <div class="flex justify-between"><span>Iron Oxide (Fe₂O₃)</span><span class="font-bold text-red-400">0.02% Max</span></div>
+                        <div class="flex justify-between"><span>Alumina (Al₂O₃)</span><span class="font-bold">0.12%</span></div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-2 text-xs uppercase tracking-wider text-gray-400">2. Ceramic Grade Soda Feldspar</h4>
+                    <div class="bg-black/30 p-3 rounded-xl border border-white/5 space-y-1">
+                        <div class="flex justify-between"><span>Silica (SiO₂)</span><span class="font-bold">67.5%</span></div>
+                        <div class="flex justify-between"><span>Alumina (Al₂O₃)</span><span class="font-bold text-[#00BFFF]">18.5%</span></div>
+                        <div class="flex justify-between"><span>Sodium Oxide (Na₂O)</span><span class="font-bold text-green-400">9.5% - 10.5%</span></div>
+                        <div class="flex justify-between"><span>Iron (Fe₂O₃)</span><span class="font-bold text-red-400">0.05% Max</span></div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 italic">Note: Real-time certificate parameters generated by in-house laboratory setup situated in Asind, Bhilwara.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CINEMATIC FACTORY TOUR VIDEO MODAL -->
+    <div id="video-modal" class="hidden fixed inset-0 w-full h-full bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-2 sm:p-6">
+        <div class="w-full max-w-4xl aspect-video bg-black rounded-3xl border border-white/10 relative overflow-hidden flex items-center justify-center">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 bg-white/10 hover:bg-[#00BFFF] text-white hover:text-black w-10 h-10 rounded-full z-10 flex items-center justify-center transition-colors"><i class="fas fa-times"></i></button>
+            <div class="text-center p-6 space-y-3">
+                <i class="fas fa-video text-5xl text-[#00BFFF] animate-pulse"></i>
+                <h3 class="text-xl font-bold">Plant & Mining Tour Video</h3>
+                <p class="text-sm text-gray-400 max-w-sm">Video modal container initialized. Replace placeholder element with your high-definition drone cinematic asset file link.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT FUNCTIONS -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -602,15 +791,10 @@
         function toggleMenu() {
             mobileMenu.classList.toggle('hidden');
             const icon = menuBtn.querySelector('i');
-            if(mobileMenu.classList.contains('hidden')) {
-                icon.className = 'fas fa-bars';
-            } else {
-                icon.className = 'fas fa-times';
-            }
+            icon.className = mobileMenu.classList.contains('hidden') ? 'fas fa-bars' : 'fas fa-times';
         }
 
         menuBtn.addEventListener('click', toggleMenu);
-        
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -618,124 +802,100 @@
             });
         });
 
-        function animateCounter(id, target, duration = 2000) {
-            const element = document.getElementById(id);
-            if (!element) return;
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    element.textContent = target + '+';
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(start) + '+';
+        // Smooth Reveal Animation on Scroll
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('active');
                 }
-            }, 16);
-        }
-        
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                animateCounter('exp', 10);
-                animateCounter('customers', 500);
-                animateCounter('supply', 5000);
-            }, 500);
+            });
         });
 
-        const industryData = {
-            ceramic: {
-                title: "Ceramic Industry Solutions",
-                icon: "fas fa-mug-hot",
-                content: `
-                    <p>HELEX MINERALS provides premium grade <b>Soda Feldspar Powder</b> and <b>Quartz</b> specifically processed for High-End Ceramic manufacturers.</p>
-                    <p><b>Key Applications:</b> Vitrified Tiles, Ceramic Glazes, Sanitaryware, and Tableware.</p>
-                    <ul class="list-disc pl-5 space-y-2 mt-2 text-gray-400 text-sm">
-                        <li><b>High Whiteness:</b> Ensures premium firing whiteness in tiles.</li>
-                        <li><b>Low Iron Content (Fe2O3):</b> Prevents black spots or yellow tinting during high-temperature firing.</li>
-                        <li><b>Perfect Melting Behavior:</b> Acts as an excellent flux agent to bind ceramic bodies perfectly.</li>
-                    </ul>
-                `
-            },
-            glass: {
-                title: "Glass Industry Solutions",
-                icon: "fas fa-glass-cheers",
-                content: `
-                    <p>Our superior quality <b>Silica Sand</b> and <b>Feldspar</b> fulfill strict global standards for premium glass manufacturing factories.</p>
-                    <p><b>Key Applications:</b> Container Glass, Flat/Float Glass, Sheet Glass, Lab Glassware, and Bangles.</p>
-                    <ul class="list-disc pl-5 space-y-2 mt-2 text-gray-400 text-sm">
-                        <li><b>High Silica Content:</b> Our premium silica sand provides maximum transparency and strength.</li>
-                        <li><b>Controlled Mesh Size:</b> Uniform grains ensure optimized combustion energy and uniform batch melting.</li>
-                        <li><b>Alumina Source:</b> Feldspar acts as a source of alumina to improve chemical durability against weathering.</li>
-                    </ul>
-                `
-            },
-            paint: {
-                title: "Paint & Coating Industry",
-                icon: "fas fa-paint-brush",
-                content: `
-                    <p>We supply fine micro-powder minerals used as essential fillers/extenders to enhance the mechanical properties of paints and architectural coatings.</p>
-                    <p><b>Key Applications:</b> Industrial Coatings, Exterior/Interior Paints, Primers, and Putty.</p>
-                    <ul class="list-disc pl-5 space-y-2 mt-2 text-gray-400 text-sm">
-                        <li><b>Exceptional Dispersion:</b> Blends smoothly into solvent and water-based formulas without agglomeration.</li>
-                        <li><b>Improves Scrub Resistance:</b> Increases durability and crack-resistance of the dried paint layer.</li>
-                        <li><b>Controlled Whiteness & Matte finish:</b> Aids in adjusting the opacity, hiding power, and gloss levels.</li>
-                    </ul>
-                `
-            },
-            construction: {
-                title: "Construction Industry Materials",
-                icon: "fas fa-building",
-                content: `
-                    <p>HELEX MINERALS processes high-strength raw materials tailored for concrete, plastering, structural works, and special chemical mixtures.</p>
-                    <p><b>Key Applications:</b> High-Strength Concrete Blocks, Special Mortars, Refractory Grout, and GFRC panels.</p>
-                    <ul class="list-disc pl-5 space-y-2 mt-2 text-gray-400 text-sm">
-                        <li><b>Pure Quartz Aggregates:</b> Imparts extreme physical structural hardness.</li>
-                        <li><b>Premium Grading Sand:</b> Meets structural foundry sand matrix distribution specifications perfectly.</li>
-                        <li><b>Chemical Stability:</b> Pure natural compounds reduce risk of moisture reactions over time.</li>
-                    </ul>
-                `
-            },
-            foundry: {
-                title: "Foundry & Casting Industry",
-                icon: "fas fa-industry",
-                content: `
-                    <p>Our highly refractory <b>Silica Sand</b> options provide the ideal grain fineness needed for casting molds across major heavy metals industries.</p>
-                    <p><b>Key Applications:</b> Metal Casting Molds, Engine Block Castings, Sand Blasting Operations, and Core making.</p>
-                    <ul class="list-disc pl-5 space-y-2 mt-2 text-gray-400 text-sm">
-                        <li><b>High Fusion Point:</b> Resists extreme thermal shock without melting or scaling under molten metals.</li>
-                        <li><b>Sub-Angular Grain Shape:</b> Yields optimal balance between gas permeability and mold dimensional strength.</li>
-                        <li><b>Low Clay Content:</b> Ensures minimal binder usage during molding sand mixing phase.</li>
-                    </ul>
-                `
+        // Interactive Product Filters Logic
+        function filterProducts(category) {
+            const fPowder = document.getElementById('prod-feldspar-pow');
+            const fBag = document.getElementById('prod-feldspar-bag');
+            const silica = document.getElementById('prod-silica');
+            const lumps = document.getElementById('prod-lumps');
+            const filterBar = document.getElementById('filter-status');
+
+            fPowder.style.display = "block"; fBag.style.display = "block"; silica.style.display = "block"; lumps.style.display = "block";
+            filterBar.classList.remove('hidden');
+
+            if(category === 'ceramic') {
+                silica.style.display = "none";
+            } else if (category === 'glass' || category === 'foundry' || category === 'construction') {
+                fPowder.style.display = "none"; fBag.style.display = "none"; lumps.style.display = "none";
             }
+            
+            openIndustryModal(category);
+            document.getElementById('products').scrollIntoView({behavior: 'smooth'});
+        }
+
+        function resetProductFilter() {
+            document.getElementById('prod-feldspar-pow').style.display = "block";
+            document.getElementById('prod-feldspar-bag').style.display = "block";
+            document.getElementById('prod-silica').style.display = "block";
+            document.getElementById('prod-lumps').style.display = "block";
+            document.getElementById('filter-status').classList.add('hidden');
+        }
+
+        // Auto trigger sample options inside contact fields
+        function requestSample(itemName) {
+            const selectBox = document.getElementById('inquiry-reason');
+            const msgBox = document.getElementById('form-msg-box');
+            
+            selectBox.value = "Request Free Testing Sample";
+            msgBox.value = `Hello HELEX team, we want to request a free sample for testing purposes regarding: ${itemName}. Please specify mesh sizes available.`;
+            
+            document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+        }
+
+        // Modals Operations Control Box
+        function openTdsModal() { document.getElementById('tds-modal').classList.remove('hidden'); }
+        function closeTdsModal() { document.getElementById('tds-modal').classList.add('hidden'); }
+        function openVideoModal() { document.getElementById('video-modal').classList.remove('hidden'); }
+        function closeVideoModal() { document.getElementById('video-modal').classList.add('hidden'); }
+
+        const industryData = {
+            ceramic: { title: "Ceramic Industry Solutions", icon: "fas fa-mug-hot", content: "<p>HELEX MINERALS provides premium grade <b>Soda Feldspar Powder</b> and <b>Quartz</b> specifically processed for High-End Ceramic manufacturers.</p><p><b>Key Applications:</b> Vitrified Tiles, Ceramic Glazes, Sanitaryware, and Tableware.</p><ul class='list-disc pl-5 space-y-2 text-xs text-gray-400'><li><b>High Whiteness:</b> Ensures premium firing whiteness in tiles.</li><li><b>Low Iron Content:</b> Prevents black spots during high-temperature processing.</li></ul>" },
+            glass: { title: "Glass Industry Solutions", icon: "fas fa-glass-cheers", content: "<p>Our superior quality <b>Silica Sand</b> and <b>Feldspar</b> fulfill strict global standards for premium glass manufacturing factories.</p><p><b>Key Applications:</b> Container Glass, Flat/Float Glass, Sheet Glass, and Premium Glassware.</p>" },
+            paint: { title: "Paint & Coating Industry", icon: "fas fa-paint-brush", content: "<p>We supply fine micro-powder minerals used as essential fillers/extenders to enhance the mechanical properties of paints and architectural coatings.</p>" },
+            construction: { title: "Construction Industry Materials", icon: "fas fa-building", content: "<p>HELEX MINERALS processes high-strength raw materials tailored for concrete, plastering, structural works, and special chemical mixtures.</p>" },
+            foundry: { title: "Foundry & Casting Industry", icon: "fas fa-industry", content: "<p>Our highly refractory <b>Silica Sand</b> options provide the ideal grain fineness needed for casting molds across major heavy metals industries.</p>" }
         };
 
         function openIndustryModal(key) {
             const modal = document.getElementById('industry-modal');
-            const title = document.getElementById('modal-title');
-            const icon = document.getElementById('modal-icon');
-            const body = document.getElementById('modal-body');
-            
             if (industryData[key]) {
-                title.innerHTML = industryData[key].title;
-                icon.className = industryData[key].icon;
-                body.innerHTML = industryData[key].content;
+                document.getElementById('modal-title').innerHTML = industryData[key].title;
+                document.getElementById('modal-icon').className = industryData[key].icon;
+                document.getElementById('modal-body').innerHTML = industryData[key].content;
                 modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
             }
         }
+        function closeIndustryModal() { document.getElementById('industry-modal').classList.add('hidden'); }
 
-        function closeIndustryModal() {
-            const modal = document.getElementById('industry-modal');
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+        // Counter Core Loops
+        function animateCounter(id, target, duration = 2000) {
+            const element = document.getElementById(id);
+            if (!element) return;
+            let start = 0; const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) { element.textContent = target + '+'; clearInterval(timer); }
+                else { element.textContent = Math.floor(start) + '+'; }
+            }, 16);
         }
-
-        document.getElementById('industry-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeIndustryModal();
-            }
+        
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('active')); 
+            setTimeout(() => {
+                animateCounter('exp', 10); animateCounter('customers', 500); animateCounter('supply', 5000);
+            }, 500);
         });
     </script>
 </body>
