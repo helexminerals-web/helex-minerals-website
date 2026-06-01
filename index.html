@@ -122,9 +122,11 @@
 </head>
 <body class="bg-[#081221] text-white font-sans overflow-x-hidden">
 
+    <!-- NAVBAR (PROFESSIONAL FIXED HEADER WITH BRAND UPDATES) -->
     <nav class="bg-[#081221]/90 backdrop-blur-md fixed w-full z-50 border-b border-white/10 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between relative">
             
+            <!-- Logo Section Upgraded to Unique Corporate Look -->
             <div class="flex items-center gap-3.5 group cursor-pointer">
                 <div class="relative">
                     <img src="helex logo.jpeg" alt="Helex Logo" class="w-12 h-12 rounded-xl object-cover border border-white/10 shadow-[0_0_15px_rgba(0,191,255,0.2)] group-hover:shadow-[0_0_20px_rgba(0,191,255,0.4)] transition-all duration-300">
@@ -140,6 +142,7 @@
                 </div>
             </div>
             
+            <!-- Desktop Nav Links -->
             <div class="hidden lg:flex items-center justify-center gap-8 text-sm font-semibold flex-1">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#products" class="nav-link">Products</a>
@@ -149,6 +152,7 @@
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             
+            <!-- Right Actions (WhatsApp & Quote) -->
             <div class="hidden sm:flex items-center gap-4">
                 <a href="https://wa.me/919636272905" target="_blank" 
                    class="bg-[#00BFFF] text-black px-5 py-2.5 rounded-full font-semibold flex items-center gap-2 hover:bg-white transition-colors text-sm shadow-[0_4px_15px_rgba(0,191,255,0.25)]">
@@ -160,10 +164,12 @@
                 </button>
             </div>
 
+            <!-- Mobile Hamburger Button (☰) -->
             <button id="menu-btn" class="lg:hidden text-2xl text-[#00BFFF] focus:outline-none p-2">
                 <i class="fas fa-bars"></i>
             </button>
 
+            <!-- Mobile Dropdown Menu -->
             <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#081221] border-b border-white/10 p-6 flex flex-col gap-4 text-center font-medium shadow-2xl z-50">
                 <a href="#about" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">About</a>
                 <a href="#products" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">Products</a>
@@ -184,6 +190,7 @@
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <section class="hero-bg min-h-screen flex items-center pt-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 w-full flex flex-col justify-between py-12 lg:py-20">
             <div class="max-w-3xl mb-12 lg:mb-16">
@@ -212,6 +219,7 @@
                         <i class="fas fa-download"></i> DOWNLOAD BROCHURE
                     </a>
 
+                    <!-- Plant Tour Play Button -->
                     <button onclick="openVideoModal()" class="flex items-center gap-3 text-white hover:text-[#00BFFF] font-semibold transition ml-2">
                         <span class="w-12 h-12 bg-[#00BFFF]/10 border border-[#00BFFF]/40 flex items-center justify-center rounded-full text-[#00BFFF] animate-bounce"><i class="fas fa-play text-sm ml-0.5"></i></span>
                         Watch Plant Tour
@@ -219,6 +227,7 @@
                 </div>
             </div>
 
+            <!-- Numbers Counter Grid -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 bg-[#081221]/60 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/10 mt-6 w-full max-w-5xl mx-auto">
                 <div class="text-center p-2">
                     <div id="exp" class="counter text-3xl sm:text-4xl md:text-5xl font-bold text-[#00BFFF]">0+</div>
@@ -241,6 +250,7 @@
         </div>
     </section>
 
+    <!-- COMPANY HIGHLIGHTS -->
     <section class="py-16 bg-black/40 reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -272,6 +282,7 @@
         </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" class="py-20 reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -303,12 +314,14 @@
         </div>
     </section>
 
+    <!-- PRODUCTS SECTION -->
     <section id="products" class="py-20 bg-black/20 reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
                 <div>
                     <h2 class="section-header text-3xl sm:text-4xl font-bold">Our Core Products</h2>
                 </div>
+                <!-- Filter Badge Info -->
                 <div id="filter-status" class="hidden bg-[#00BFFF]/10 border border-[#00BFFF]/30 text-[#00BFFF] text-xs font-semibold px-4 py-1.5 rounded-full flex items-center gap-2">
                     <span>Showing filtered minerals</span>
                     <button onclick="resetProductFilter()" class="underline font-bold text-white hover:text-[#00BFFF] ml-1">Clear Filter</button>
@@ -317,6 +330,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 
+                <!-- Product 1 -->
                 <div id="prod-feldspar-pow" class="product-card rounded-3xl overflow-hidden group transition-all duration-300">
                     <div class="overflow-hidden relative h-64">
                         <img src="maal photo.jpeg" alt="Soda Feldspar Powder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -338,6 +352,7 @@
                     </div>
                 </div>
 
+                <!-- Product 2 -->
                 <div id="prod-feldspar-bag" class="product-card rounded-3xl overflow-hidden group transition-all duration-300">
                     <div class="overflow-hidden relative h-64">
                         <img src="bag photo.jpeg" alt="Feldspar Powder Bag" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -359,6 +374,7 @@
                     </div>
                 </div>
 
+                <!-- Product 3 -->
                 <div id="prod-silica" class="product-card rounded-3xl overflow-hidden group transition-all duration-300">
                     <div class="overflow-hidden relative h-64">
                         <img src="silica sand.JPG" alt="Silica Sand" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -380,6 +396,7 @@
                     </div>
                 </div>
 
+                <!-- Product 4 -->
                 <div id="prod-lumps" class="product-card rounded-3xl overflow-hidden group transition-all duration-300">
                     <div class="overflow-hidden relative h-64">
                         <img src="feldspar lumps.jpeg" alt="Feldspar Lumps" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -405,6 +422,7 @@
         </div>
     </section>
 
+    <!-- MANUFACTURING FACILITY -->
     <section id="facility" class="py-20 reveal">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="section-header text-3xl sm:text-4xl font-bold mb-4">State-of-the-Art Production Facility</h2>
@@ -430,6 +448,7 @@
         </div>
     </section>
 
+    <!-- WHY CHOOSE US -->
     <section class="py-20 bg-gradient-to-b from-black/40 to-transparent reveal">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative section-header-center">Why Choose HELEX MINERALS PVT LTD</h2>
@@ -460,40 +479,57 @@
         </div>
     </section>
 
+    <!-- LEADERSHIP TEAM (UPGRADED PREVENTING IMAGE CUTS) -->
     <section class="py-20 reveal">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 relative section-header-center">Our Leadership Team</h2>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
-                <div class="bg-[#0f1f33]/40 p-4 rounded-2xl border border-white/5">
-                    <img src="helex dire.jpeg" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-2 border-[#00BFFF]/50">
-                    <h4 class="font-semibold text-base sm:text-lg">RP Singh</h4>
-                    <p class="text-[#00BFFF] text-xs sm:text-sm">Director</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+                <!-- Card 1 -->
+                <div class="bg-[#0f1f33]/40 p-4 rounded-3xl border border-white/5 flex flex-col justify-between group hover:border-[#00BFFF]/30 transition-all duration-300">
+                    <img src="helex dire.jpeg" class="w-full aspect-[3/4] object-cover mb-4 rounded-2xl border border-white/10 group-hover:border-[#00BFFF]/40 transition-all shadow-md">
+                    <div>
+                        <h4 class="font-semibold text-base sm:text-lg">RP Singh</h4>
+                        <p class="text-[#00BFFF] text-xs sm:text-sm">Director</p>
+                    </div>
                 </div>
-                <div class="bg-[#0f1f33]/40 p-4 rounded-2xl border border-white/5">
-                    <img src="dev photo.jpeg" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-2 border-[#00BFFF]/50">
-                    <h4 class="font-semibold text-base sm:text-lg">Dev Rathore</h4>
-                    <p class="text-[#00BFFF] text-xs sm:text-sm">Chief Operating Officer</p>
+                <!-- Card 2 -->
+                <div class="bg-[#0f1f33]/40 p-4 rounded-3xl border border-white/5 flex flex-col justify-between group hover:border-[#00BFFF]/30 transition-all duration-300">
+                    <img src="dev photo.jpeg" class="w-full aspect-[3/4] object-cover mb-4 rounded-2xl border border-white/10 group-hover:border-[#00BFFF]/40 transition-all shadow-md">
+                    <div>
+                        <h4 class="font-semibold text-base sm:text-lg">Dev Rathore</h4>
+                        <p class="text-[#00BFFF] text-xs sm:text-sm">Chief Operating Officer</p>
+                    </div>
                 </div>
-                <div class="bg-[#0f1f33]/40 p-4 rounded-2xl border border-white/5">
-                    <img src="jasraj.jpeg" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-2 border-[#00BFFF]/50">
-                    <h4 class="font-semibold text-base sm:text-lg">Jasraj</h4>
-                    <p class="text-[#00BFFF] text-xs sm:text-sm">Operations Manager</p>
+                <!-- Card 3 -->
+                <div class="bg-[#0f1f33]/40 p-4 rounded-3xl border border-white/5 flex flex-col justify-between group hover:border-[#00BFFF]/30 transition-all duration-300">
+                    <img src="jasraj.jpeg" class="w-full aspect-[3/4] object-cover mb-4 rounded-2xl border border-white/10 group-hover:border-[#00BFFF]/40 transition-all shadow-md">
+                    <div>
+                        <h4 class="font-semibold text-base sm:text-lg">Jasraj</h4>
+                        <p class="text-[#00BFFF] text-xs sm:text-sm">Operations Manager</p>
+                    </div>
                 </div>
-                <div class="bg-[#0f1f33]/40 p-4 rounded-2xl border border-white/5">
-                    <img src="ashok.jpeg" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-2 border-[#00BFFF]/50">
-                    <h4 class="font-semibold text-base sm:text-lg">Ashok Singh</h4>
-                    <p class="text-[#00BFFF] text-xs sm:text-sm">Production Head</p>
+                <!-- Card 4 -->
+                <div class="bg-[#0f1f33]/40 p-4 rounded-3xl border border-white/5 flex flex-col justify-between group hover:border-[#00BFFF]/30 transition-all duration-300">
+                    <img src="ashok.jpeg" class="w-full aspect-[3/4] object-cover mb-4 rounded-2xl border border-white/10 group-hover:border-[#00BFFF]/40 transition-all shadow-md">
+                    <div>
+                        <h4 class="font-semibold text-base sm:text-lg">Ashok Singh</h4>
+                        <p class="text-[#00BFFF] text-xs sm:text-sm">Production Head</p>
+                    </div>
                 </div>
-                <div class="bg-[#0f1f33]/40 p-4 rounded-2xl border border-white/5 col-span-2 sm:col-span-1 mx-auto w-1/2 sm:w-full">
-                    <img src="jagpal.jpeg" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-2 border-[#00BFFF]/50">
-                    <h4 class="font-semibold text-base sm:text-lg">Jagpal Singh</h4>
-                    <p class="text-[#00BFFF] text-xs sm:text-sm">QC Head</p>
+                <!-- Card 5 -->
+                <div class="bg-[#0f1f33]/40 p-4 rounded-3xl border border-white/5 flex flex-col justify-between group hover:border-[#00BFFF]/30 transition-all duration-300 col-span-2 lg:col-span-1 max-w-[50%] lg:max-w-full mx-auto w-full">
+                    <img src="jagpal.jpeg" class="w-full aspect-[3/4] object-cover mb-4 rounded-2xl border border-white/10 group-hover:border-[#00BFFF]/40 transition-all shadow-md">
+                    <div>
+                        <h4 class="font-semibold text-base sm:text-lg">Jagpal Singh</h4>
+                        <p class="text-[#00BFFF] text-xs sm:text-sm">QC Head</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- INDUSTRIES SERVED -->
     <section id="quality" class="py-20 bg-black/40 reveal">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 relative section-header-center">Subsectors & Industries We Serve</h2>
@@ -529,6 +565,7 @@
         </div>
     </section>
 
+    <!-- GLOBAL REACH MAP SECTION -->
     <section class="py-20 bg-[#07111f] reveal">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2 relative section-header-center">Global Reach & Logistics</h2>
@@ -572,6 +609,7 @@
         </div>
     </section>
 
+    <!-- THE HELEX GROUP -->
     <section class="py-20 bg-[#081221] reveal">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-2 relative section-header-center">The Helex Group</h2>
@@ -602,6 +640,7 @@
         </div>
     </section> 
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="py-20 bg-[#0a1829] reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
@@ -629,6 +668,7 @@
                     </div>
                 </div>
                 
+                <!-- Form Area -->
                 <div class="bg-[#081221] p-8 rounded-3xl border border-white/10 shadow-xl">
                     <form action="https://formsubmit.co/helexminerals@gmail.com" method="POST" class="space-y-5">
                         <div class="grid grid-cols-2 gap-4">
@@ -660,6 +700,7 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="bg-black py-12 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between gap-10">
@@ -683,6 +724,7 @@
                 <div>
                     <h4 class="font-semibold mb-4 text-sm sm:text-base">Contact Info</h4>
                     <p class="text-sm text-gray-400">+91 96362 72905</p>
+                    <p class="text-sm text-gray-400">+91 74258 62163</p>
                     <p class="text-sm text-gray-400">helexminerals@gmail.com</p>
                     <p class="text-sm text-gray-400 mt-2">Asind, Bhilwara, Rajasthan</p>
                 </div>
@@ -694,13 +736,15 @@
         </div>
     </footer>
 
+    <!-- Floating WhatsApp Button (Shifted to Left to Avoid Overlap) -->
     <a href="https://wa.me/919636272905" target="_blank"
        class="fixed bottom-6 left-6 bg-green-500 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-all z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
 
 
-    <div id="industry-modal" class="hidden fixed inset-0 w-full h-full bg-black/80 backdrop-blur-sm z- flex items-center justify-center p-4 transition-all duration-300">
+    <!-- INDUSTRIES VIEW MODAL WINDOW -->
+    <div id="industry-modal" class="hidden fixed inset-0 w-full h-full bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-all duration-300">
         <div class="bg-[#0f1f33] border border-white/10 w-full max-w-2xl rounded-3xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
             <button onclick="closeIndustryModal()" class="absolute top-5 right-5 text-gray-400 hover:text-[#00BFFF] text-2xl transition-colors">
                 <i class="fas fa-times"></i>
@@ -719,7 +763,8 @@
     </div>
 
 
-    <div id="tds-modal" class="hidden fixed inset-0 w-full h-full bg-black/85 backdrop-blur-sm z- flex items-center justify-center p-4">
+    <!-- TECHNICAL TDS ANALYSIS POPUP MODAL -->
+    <div id="tds-modal" class="hidden fixed inset-0 w-full h-full bg-black/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
         <div class="bg-[#0f1f33] border border-[#00BFFF]/20 w-full max-w-2xl rounded-3xl p-6 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
             <button onclick="closeTdsModal()" class="absolute top-5 right-5 text-gray-400 hover:text-[#00BFFF] text-xl"><i class="fas fa-times"></i></button>
             <h3 class="text-xl font-bold text-white border-b border-white/10 pb-3 mb-4 flex items-center gap-2 text-[#00BFFF]"><i class="fas fa-flask"></i> Technical Data Sheet (TDS Summary)</h3>
@@ -748,7 +793,8 @@
     </div>
 
 
-    <div id="video-modal" class="hidden fixed inset-0 w-full h-full bg-black/90 backdrop-blur-md z- flex items-center justify-center p-2 sm:p-6">
+    <!-- CINEMATIC FACTORY TOUR VIDEO MODAL -->
+    <div id="video-modal" class="hidden fixed inset-0 w-full h-full bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-2 sm:p-6">
         <div class="w-full max-w-4xl aspect-video bg-black rounded-3xl border border-white/10 relative overflow-hidden flex items-center justify-center">
             <button onclick="closeVideoModal()" class="absolute top-4 right-4 bg-white/10 hover:bg-[#00BFFF] text-white hover:text-black w-10 h-10 rounded-full z-10 flex items-center justify-center transition-colors"><i class="fas fa-times"></i></button>
             <div class="text-center p-6 space-y-3">
@@ -760,6 +806,7 @@
     </div>
 
 
+    <!-- JAVASCRIPT FUNCTIONS -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -874,7 +921,9 @@
             }, 500);
         });
     </script>
-    <script src="//code.tidio.co/l8jdpai8zv3tevm1brdzy8cjxjw0coqm.js" async></script>
+    
+    <!-- SMART LIVE CHAT BOT CODE INTEGRATION -->
+    <script src="https://code.tidio.co/18jdpai8zv3tevm1brdzy8cjxjw0coqm.js" async></script>
 
 </body>
 </html>
