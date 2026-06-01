@@ -61,7 +61,7 @@
 <body class="bg-[#081221] text-white font-sans">
 
     <!-- NAVBAR -->
-    <nav class="bg-[#081221]/95 backdrop-blur-md fixed w-full z-50 border-b border-white/10">
+    <nav class="bg-[#081221] fixed w-full z-50 border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between relative">
             
             <!-- Logo Section -->
@@ -95,13 +95,13 @@
                 </button>
             </div>
 
-           <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#081221] border-b border-white/10 p-6 flex flex-col gap-4 text-center font-medium shadow-2xl z-50">
+            <!-- Mobile Hamburger Button (☰) -->
             <button id="menu-btn" class="lg:hidden text-2xl text-[#00BFFF] focus:outline-none p-2">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <!-- Mobile Dropdown Menu -->
-            <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#081221]/98 border-b border-white/10 p-6 flex flex-col gap-4 text-center font-medium shadow-xl backdrop-blur-lg">
+            <!-- Mobile Dropdown Menu (Solid Background & Fixed Overlap) -->
+            <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#081221] border-b border-white/10 p-6 flex flex-col gap-4 text-center font-medium shadow-2xl z-50">
                 <a href="#about" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">About</a>
                 <a href="#products" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">Products</a>
                 <a href="#facility" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">Facility</a>
@@ -152,7 +152,7 @@
                 </div>
             </div>
 
-            <!-- Fix Overlap Layout using grid -->
+            <!-- Numbers Counter Grid (No Mobile Overlap) -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 bg-[#081221]/60 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/10 mt-6 w-full max-w-5xl mx-auto">
                 <div class="text-center p-2">
                     <div id="exp" class="counter text-3xl sm:text-4xl md:text-5xl font-bold text-[#00BFFF]">0+</div>
@@ -455,7 +455,7 @@
                     </div>
                 </div>
                 
-                <!-- Clean Form Action -->
+                <!-- Inquiry Form -->
                 <div class="bg-[#081221] p-8 rounded-3xl border border-white/10 shadow-xl">
                     <form action="https://formsubmit.co/helexminerals@gmail.com" method="POST" class="space-y-5">
                         <div>
@@ -467,7 +467,7 @@
                             <input type="email" name="email" required placeholder="name@company.com" class="w-full bg-[#0a1829] border border-white/20 p-4 rounded-xl focus:outline-none focus:border-[#00BFFF] text-white">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2 text-gray-300">Requirement details</label>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">Requirement Details</label>
                             <textarea name="message" rows="4" required placeholder="Tell us about your requirement (Mesh size, tonnage, application etc.)..." class="w-full bg-[#0a1829] border border-white/20 p-4 rounded-xl focus:outline-none focus:border-[#00BFFF] text-white"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-[#00BFFF] text-black py-4 rounded-xl font-bold text-base hover:bg-white transition-colors uppercase tracking-wider">Send Inquiry</button>
@@ -512,13 +512,13 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp -->
+    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/919636272905" target="_blank"
        class="fixed bottom-6 right-6 bg-green-500 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-all z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JAVASCRIPT FOR TOGGLE & ANIMATION -->
+    <!-- JAVASCRIPT FOR TOGGLE & COUNTERS -->
     <script>
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
@@ -536,7 +536,7 @@
 
         menuBtn.addEventListener('click', toggleMenu);
         
-        // Close menu when a link is clicked
+        // Close menu when links are clicked
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -544,7 +544,7 @@
             });
         });
 
-        // Counter Animation
+        // Counter Animation Function
         function animateCounter(id, target, duration = 2000) {
             const element = document.getElementById(id);
             if (!element) return;
@@ -562,7 +562,7 @@
             }, 16);
         }
         
-        // Trigger counters
+        // Trigger counters on load
         window.addEventListener('load', () => {
             setTimeout(() => {
                 animateCounter('exp', 10);
