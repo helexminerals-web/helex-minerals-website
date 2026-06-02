@@ -14,10 +14,29 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HELEX MINERALS PVT LTD | High-Purity Feldspar & Quartz Manufacturer</title>
     <meta name="description" content="HELEX MINERALS PVT LTD - Premium Soda Feldspar Powder, Quartz Powder, and Silica Sand Manufacturer in Asind, Bhilwara, Rajasthan. Top industrial grade minerals.">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome for Icons -->
+    
+    <!-- Google Fonts Framework Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS Stable Production CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
         @keyframes pulseGlow {
             0%, 100% { opacity: 0.2; transform: scale(1); }
@@ -43,17 +62,7 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
         .glass-card {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
-            border: 1px border rgba(51, 65, 85, 0.5);
-        }
-        .text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .emerald-gradient {
-            background: linear-gradient(135deg, #34d399 0%, #059669 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            border: 1px solid rgba(51, 65, 85, 0.2);
         }
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
@@ -79,7 +88,7 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
         </div>
     </div>
 
-    <!-- Main Dynamic Navigation Header -->
+    <!-- Main Navigation Header -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-900/50 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logotype Grid -->
@@ -88,7 +97,7 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
                     <i class="fa-solid fa-gem text-slate-950 text-xl"></i>
                 </div>
                 <div>
-                    <span class="text-2xl font-black tracking-wider text-white block">HELEX <span class="text-emerald-400">MINERALS</span></span>
+                    <span class="text-2xl font-extrabold tracking-wider text-white block">HELEX <span class="text-emerald-400">MINERALS</span></span>
                     <span class="text-[10px] text-slate-400 font-bold tracking-[0.3em] uppercase block -mt-1">Global Procurement Grade</span>
                 </div>
             </div>
@@ -127,21 +136,21 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
     </header>
 
     <!-- Interactive Video/Showreel Modular Section -->
-    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden glow-bg py-24">
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden glow-bg py-20">
         <div class="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]"></div>
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <!-- Badging row -->
-            <div class="flex justify-center mb-8">
+            <div class="flex justify-center mb-6">
                 <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-emerald-400 text-xs font-bold uppercase tracking-wider shadow-inner">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Premium Processing Architecture
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Premium Processing Architecture
                 </span>
             </div>
 
             <!-- Heavy Duty Typography Header -->
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight max-w-5xl mx-auto leading-[1.1] text-gradient">
-                High-Purity Industrial Minerals <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500">Engineered for Excellence</span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight max-w-5xl mx-auto leading-[1.15]">
+                High-Purity Industrial Minerals <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500">Engineered for Excellence</span>
             </h1>
 
             <p class="mt-8 text-base sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
@@ -150,7 +159,7 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
 
             <!-- Media Triggers & Actions -->
             <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-6">
-                <a href="#products" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black rounded-xl shadow-xl shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                <a href="#products" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-extrabold rounded-xl shadow-xl shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
                     <span>Analyze Product Range</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
@@ -192,12 +201,11 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
             </button>
         </div>
         <div class="w-full max-w-5xl aspect-video bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-2xl relative">
-            <!-- Simulated High Definition Industrial Plant Loop Media Presentation -->
             <div class="absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-8 text-center">
                 <div class="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-3xl mb-6 animate-pulse">
                     <i class="fa-solid fa-industry"></i>
                 </div>
-                <h3 class="text-2xl font-black text-white">HELEX Grinding & Processing Facilities</h3>
+                <h3 class="text-2xl font-bold text-white">HELEX Grinding & Processing Facilities</h3>
                 <p class="text-slate-400 mt-2 max-w-md text-sm">Industrial sorting lines, micro-mesh hammer milling operations, and heavy packing automation system demonstrations are running live.</p>
                 <div class="mt-8 flex gap-3">
                     <span class="px-3 py-1 bg-slate-900 text-slate-400 rounded border border-slate-800 text-xs">Resolution: 8K UHD</span>
@@ -215,7 +223,7 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl">
                         <i class="fa-solid fa-building-shield"></i>
                     </div>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">Vanguard Mineral Processing Infrastructure In Rajasthan</h2>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Vanguard Mineral Processing Infrastructure In Rajasthan</h2>
                     <p class="text-slate-400 leading-relaxed text-base">
                         HELEX MINERALS PVT LTD stands as a cornerstone in the industrial raw materials sector. Strategically centralized in Asind, Bhilwara—the absolute core of premium Indian mineral fields—our specialized grinding setups convert high-purity lumps into bespoke grain distributions.
                     </p>
@@ -244,7 +252,7 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
                 <div class="lg:col-span-5 relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 rounded-3xl blur-2xl pointer-events-none"></div>
                     <div class="relative rounded-2xl border border-slate-800 bg-slate-900 p-8 space-y-6 shadow-2xl">
-                        <h3 class="text-lg font-black text-white uppercase tracking-wider text-emerald-400">Plant Performance Matrices</h3>
+                        <h3 class="text-lg font-bold text-white uppercase tracking-wider text-emerald-400">Plant Performance Matrices</h3>
                         
                         <div class="space-y-4">
                             <div>
@@ -280,10 +288,4 @@ All Rights Reserved. Authorial Credit is Permanent and Immutable.
                             <span>Regulatory Standards:</span>
                             <span class="font-bold text-slate-200">ASTM Grade Compliant</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Grinding Plant Infrastru
+                    
