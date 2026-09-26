@@ -613,6 +613,15 @@
             <!-- OFFICIAL BRAND EXCLUSIVE COPYRIGHT FOOTNOTE -->
             <div class="text-center text-gray-500 text-xs mt-10 tracking-wide">
                Copyright © 2026 <span class="text-gray-400 font-semibold">HELEX MINERALS PVT LTD</span>. All Rights Reserved. | Made with pride in Rajasthan, India | Designed & Developed by <span class="text-[#00BFFF] font-medium">Dev Rathore</span>
+                <p class="text-gray-500 text-xs mt-2 tracking-wide">
+  Last Updated: <span id="last-update" class="text-cyan-400 font-medium"></span>
+</p>
+
+<script>
+  const lastMod = new Date(document.lastModified);
+  const options = { day: '2-digit', month: 'short', year: 'numeric' };
+  document.getElementById('last-update').textContent = lastMod.toLocaleDateString('en-GB', options);
+</script>
             </div>
         </div>
     </footer>
