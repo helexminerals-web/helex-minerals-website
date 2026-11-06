@@ -13,6 +13,25 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="HELEX MINERALS PVT LTD | Premium Industrial Minerals">
     <meta name="twitter:description" content="Manufacturer and exporter of quartz, feldspar and silica minerals from Rajasthan, India.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "HELEX MINERALS PVT LTD",
+      "url": "https://helexminerals.com/",
+      "logo": "https://helexminerals.com/helex%20logo.jpeg",
+      "email": "info@helexminerals.com",
+      "telephone": ["+91-96362-72905", "+91-74258-62163"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ward 1, Pratap Nagar, Asind",
+        "addressLocality": "Asind",
+        "addressRegion": "Rajasthan",
+        "postalCode": "311301",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
     <title>HELEX MINERALS PVT LTD | Premium Industrial Minerals</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -160,6 +179,7 @@
             <div class="hidden lg:flex items-center justify-center gap-8 text-sm font-semibold flex-1 tracking-wide">
                 <a href="#about" class="hover:text-[#00BFFF] transition-colors">About</a>
                 <a href="#products" class="hover:text-[#00BFFF] transition-colors">Products</a>
+                <a href="#gallery" class="hover:text-[#00BFFF] transition-colors">Gallery</a>
                 <a href="#facility" class="hover:text-[#00BFFF] transition-colors">Facility</a>
                 <a href="#quality" class="hover:text-[#00BFFF] transition-colors">Quality</a>
                 <a href="#global" class="hover:text-[#00BFFF] transition-colors">Global Reach</a>
@@ -183,6 +203,7 @@
             <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#050b14] border-b border-white/5 p-6 flex flex-col gap-4 text-center font-medium shadow-2xl z-50">
                 <a href="#about" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">About</a>
                 <a href="#products" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">Products</a>
+                <a href="#gallery" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">Gallery</a>
                 <a href="#facility" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">Facility</a>
                 <a href="#quality" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">Quality</a>
                 <a href="#global" class="mobile-nav-link py-2 text-lg border-b border-white/5 hover:text-[#00BFFF]">Global Reach</a>
@@ -617,13 +638,14 @@
                         <div class="flex items-start gap-4">
                             <i class="fas fa-phone text-xl text-[#00BFFF] mt-1"></i>
                             <div>
-                                <p class="font-bold text-lg text-white">+91 96362 72905</p>
-                                <p class="font-bold text-lg text-white">+91 74258 62163</p>
+                                <a href="tel:+919636272905" class="font-bold text-lg text-white hover:text-[#00BFFF] transition-colors">+91 96362 72905</a>
+                                <a href="tel:+917425862163" class="block font-bold text-lg text-white hover:text-[#00BFFF] transition-colors">+91 74258 62163</a>
+                                <a href="https://wa.me/919636272905" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-3 bg-[#00BFFF] text-black px-4 py-2 rounded-lg text-sm font-bold hover:bg-white transition-colors"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
                             <i class="fas fa-envelope text-xl text-[#00BFFF] mt-1"></i>
-                            <p class="font-bold text-lg text-white">info@helexminerals.com</p>
+                            <a href="mailto:info@helexminerals.com" class="font-bold text-lg text-white hover:text-[#00BFFF] transition-colors">info@helexminerals.com</a>
                         </div>
                         <div class="flex items-start gap-4">
                             <i class="fas fa-map-marker-alt text-xl text-[#00BFFF] mt-1"></i>
@@ -637,7 +659,9 @@
                 
                 <div class="bg-[#050b14] p-8 rounded-3xl border border-white/10 shadow-2xl">
                     <form action="https://formsubmit.co/helexminerals@gmail.com" method="POST" class="space-y-5">
-                        <div class="grid grid-cols-2 gap-4">
+                        <input type="hidden" name="_subject" value="New Business Enquiry - HELEX MINERALS Website">
+                        <input type="hidden" name="_template" value="table">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-gray-400">Company</label>
                                 <input type="text" name="company" required placeholder="Your Firm" class="w-full bg-[#0a1424] border border-white/10 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white">
@@ -651,9 +675,35 @@
                                 </select>
                             </div>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-gray-400">Email Address</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-gray-400">Contact Number</label>
+                                <input type="tel" name="phone" required autocomplete="tel" placeholder="+91 XXXXX XXXXX" class="w-full bg-[#0a1424] border border-white/10 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-gray-400">Email Address</label>
                             <input type="email" name="email" required placeholder="name@company.com" class="w-full bg-[#0a1424] border border-white/10 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-gray-400">Product Required</label>
+                                <select name="product" required class="w-full bg-[#0a1424] border border-white/10 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white">
+                                    <option value="">Select Product</option>
+                                    <option>Soda Feldspar Powder</option>
+                                    <option>Quartz Powder</option>
+                                    <option>Silica Sand</option>
+                                    <option>Feldspar Lumps</option>
+                                    <option>Other / Multiple Products</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-gray-400">Required Quantity</label>
+                                <input type="text" name="quantity" placeholder="e.g. 100 MT / month" class="w-full bg-[#0a1424] border border-white/10 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-gray-400">Delivery Location</label>
+                            <input type="text" name="delivery_location" placeholder="City, State, Country" class="w-full bg-[#0a1424] border border-white/10 p-3 rounded-xl focus:outline-none focus:border-[#00BFFF] text-sm text-white">
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-gray-400">Requirement Details</label>
@@ -682,6 +732,7 @@
                     <h4 class="font-bold mb-4 text-sm uppercase tracking-widest text-[#00BFFF]">Quick Navigations</h4>
                     <ul class="space-y-2.5 text-sm text-gray-400">
                         <li><a href="#products" class="hover:text-white transition-colors">Products & Minerals</a></li>
+                        <li><a href="#gallery" class="hover:text-white transition-colors">Photo Gallery</a></li>
                         <li><a href="#about" class="hover:text-white transition-colors">About Corporate Structure</a></li>
                         <li><a href="#facility" class="hover:text-white transition-colors">Infrastructure Setup</a></li>
                     </ul>
