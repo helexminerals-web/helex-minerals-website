@@ -105,6 +105,20 @@
             pointer-events: none;
             animation: floatParticles 4s infinite linear;
         }
+    
+        /* HELEX MINERALS - Diwali 2026 greeting */
+        .diwali-strip{position:relative;z-index:40;padding:14px 18px;text-align:center;background:linear-gradient(100deg,#321306,#8a3d0b 48%,#321306);border-bottom:1px solid rgba(255,190,90,.45);color:#fff3d6;font-size:14px;line-height:1.6}
+        .diwali-strip strong{color:#ffd27a;letter-spacing:.04em}
+        .diwali-strip a{display:inline-block;margin-left:10px;color:#321306;background:#ffd27a;padding:6px 13px;border-radius:999px;font-weight:800;font-size:12px;text-decoration:none}
+        .diwali-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.82);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:18px}
+        .diwali-overlay.show{display:flex}
+        .diwali-card{position:relative;overflow:hidden;width:100%;max-width:520px;text-align:center;padding:42px 26px 30px;border:1px solid rgba(255,205,120,.55);border-radius:26px;background:radial-gradient(circle at 50% 0%,#71320e 0,#281307 55%,#100b08 100%);box-shadow:0 25px 90px rgba(0,0,0,.6),0 0 45px rgba(255,153,40,.15)}
+        .diwali-card h2{font-size:clamp(30px,7vw,44px);line-height:1.15;font-weight:900;color:#ffd27a;margin:0 0 14px}
+        .diwali-card p{color:#fff0d7;line-height:1.7;margin:0 auto 22px;max-width:420px}
+        .diwali-close{position:absolute;right:14px;top:12px;border:1px solid rgba(255,255,255,.25);border-radius:50%;width:36px;height:36px;color:#fff;background:rgba(255,255,255,.08);font-size:22px;cursor:pointer}
+        .diwali-cta{display:inline-block;background:linear-gradient(90deg,#ffbd55,#ffe4a3);color:#321707;padding:12px 24px;border-radius:999px;font-weight:900;text-decoration:none}
+        @media(max-width:640px){.diwali-strip{font-size:13px}.diwali-strip a{margin-top:8px}}
+
     </style>
 </head>
 <body class="text-white font-sans overflow-x-hidden custom-scrollbar">
@@ -160,6 +174,13 @@
             </div>
         </div>
     </nav>
+
+    <!-- HELEX MINERALS DIWALI GREETING BANNER -->
+    <div class="diwali-strip">
+        🪔 <strong>शुभ दीपावली!</strong> HELEX MINERALS PVT LTD की ओर से आपको और आपके परिवार को सुख, समृद्धि एवं सफलता की हार्दिक शुभकामनाएँ।
+        <a href="#diwali-wishes" onclick="openDiwaliPopup();return false;">शुभकामनाएँ पढ़ें</a>
+    </div>
+
 
     <!-- HERO SECTION WITH LIQUID GLOW EFFECTS -->
     <section class="hero-bg min-h-screen flex items-center pt-24 relative overflow-hidden">
@@ -626,6 +647,18 @@
         </div>
     </footer>
 
+    
+    <!-- HELEX MINERALS DIWALI WELCOME POPUP -->
+    <div id="diwali-wishes" class="diwali-overlay" role="dialog" aria-modal="true" aria-labelledby="diwali-title">
+        <div class="diwali-card">
+            <button class="diwali-close" type="button" aria-label="Close" onclick="closeDiwaliPopup()">×</button>
+            <div style="font-size:42px;margin-bottom:12px">🪔 ✨ 🪔</div>
+            <h2 id="diwali-title">शुभ दीपावली</h2>
+            <p><strong>HELEX MINERALS PVT LTD</strong> की ओर से आपको एवं आपके परिवार को दीपावली के पावन पर्व की हार्दिक शुभकामनाएँ।<br>यह प्रकाश पर्व आपके जीवन में सुख, शांति, समृद्धि और नई सफलताएँ लेकर आए।</p>
+            <a class="diwali-cta" href="#contact" onclick="closeDiwaliPopup()">Let’s Grow Together</a>
+        </div>
+    </div>
+
     <!-- FIXED WHATSAPP OVERLAY -->
     <a href="https://wa.me/919636272905" target="_blank"
        class="fixed bottom-6 left-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-[0_10px_30px_rgba(34,197,94,0.4)] hover:scale-110 transition-all z-50">
@@ -749,6 +782,31 @@
     
     <!-- DYNAMIC LIVE TIDIO CHATBOT SCRIPT INTEGRATION -->
     <script src="https://code.tidio.co/18jdpai8zv3tevm1brdzy8cjxjw0coqm.js" async></script>
+
+
+    <script>
+      (function () {
+        const popup = document.getElementById('diwali-wishes');
+        window.openDiwaliPopup = function () {
+          if (popup) popup.classList.add('show');
+        };
+        window.closeDiwaliPopup = function () {
+          if (popup) popup.classList.remove('show');
+          try { localStorage.setItem('helexDiwaliPopupSeen2026', '1'); } catch (e) {}
+        };
+        if (popup) {
+          popup.addEventListener('click', function (event) {
+            if (event.target === popup) window.closeDiwaliPopup();
+          });
+          document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') window.closeDiwaliPopup();
+          });
+          let seen = false;
+          try { seen = localStorage.getItem('helexDiwaliPopupSeen2026') === '1'; } catch (e) {}
+          if (!seen) window.setTimeout(window.openDiwaliPopup, 1100);
+        }
+      })();
+    </script>
 
 </body>
 </html>
