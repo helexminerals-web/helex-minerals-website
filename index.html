@@ -128,6 +128,13 @@
         .diwali-cta{display:inline-block;background:linear-gradient(90deg,#ffbd55,#ffe4a3);color:#321707;padding:12px 24px;border-radius:999px;font-weight:900;text-decoration:none}
         @media(max-width:640px){.diwali-strip{font-size:13px}.diwali-strip a{margin-top:8px}}
 
+
+        #helex-gallery-track::-webkit-scrollbar{display:none}
+        #helex-gallery-track .gallery-slide img{transition:transform .6s ease}
+        #helex-gallery-track .gallery-slide:hover img{transform:scale(1.045)}
+        #gallery-dots button{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.3);transition:all .25s}
+        #gallery-dots button.active{width:22px;background:#00BFFF;box-shadow:0 0 10px rgba(0,191,255,.5)}
+        @media(prefers-reduced-motion:reduce){#helex-gallery-track{scroll-behavior:auto}#helex-gallery-track .gallery-slide img{transition:none}}
     </style>
 </head>
 <body class="text-white font-sans overflow-x-hidden custom-scrollbar">
@@ -403,6 +410,55 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- HELEX PHOTO GALLERY -->
+    <section id="gallery" class="py-24 bg-[#07111f] reveal active overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="section-header-center relative inline-block text-3xl sm:text-4xl font-black tracking-tight">Our Gallery</h2>
+                <p class="text-gray-400 mt-6 text-sm sm:text-base">A glimpse of our minerals, processing facility and operations</p>
+            </div>
+            <div class="relative">
+                <div id="helex-gallery-track" class="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-5" style="scrollbar-width:none;">
+                    <article class="gallery-slide min-w-[82%] sm:min-w-[48%] lg:min-w-[32%] snap-start rounded-2xl overflow-hidden border border-white/10 bg-[#0a1728]">
+                        <img src="factory photo.jpeg" alt="HELEX minerals processing factory" loading="lazy" class="w-full h-64 sm:h-72 object-cover">
+                        <div class="p-4"><h3 class="font-bold text-white">Our Processing Facility</h3><p class="text-gray-400 text-sm mt-1">Mineral processing operations</p></div>
+                    </article>
+                    <article class="gallery-slide min-w-[82%] sm:min-w-[48%] lg:min-w-[32%] snap-start rounded-2xl overflow-hidden border border-white/10 bg-[#0a1728]">
+                        <img src="quartz process.jpeg" alt="Quartz mineral processing" loading="lazy" class="w-full h-64 sm:h-72 object-cover">
+                        <div class="p-4"><h3 class="font-bold text-white">Quartz Processing</h3><p class="text-gray-400 text-sm mt-1">Industrial mineral processing</p></div>
+                    </article>
+                    <article class="gallery-slide min-w-[82%] sm:min-w-[48%] lg:min-w-[32%] snap-start rounded-2xl overflow-hidden border border-white/10 bg-[#0a1728]">
+                        <img src="wearhouse.JPG" alt="HELEX minerals warehouse" loading="lazy" class="w-full h-64 sm:h-72 object-cover">
+                        <div class="p-4"><h3 class="font-bold text-white">Warehouse & Stock</h3><p class="text-gray-400 text-sm mt-1">Material storage and dispatch readiness</p></div>
+                    </article>
+                    <article class="gallery-slide min-w-[82%] sm:min-w-[48%] lg:min-w-[32%] snap-start rounded-2xl overflow-hidden border border-white/10 bg-[#0a1728]">
+                        <img src="lab.png" alt="Mineral quality testing laboratory" loading="lazy" class="w-full h-64 sm:h-72 object-cover">
+                        <div class="p-4"><h3 class="font-bold text-white">Quality & Testing</h3><p class="text-gray-400 text-sm mt-1">Focus on consistent product quality</p></div>
+                    </article>
+                    <article class="gallery-slide min-w-[82%] sm:min-w-[48%] lg:min-w-[32%] snap-start rounded-2xl overflow-hidden border border-white/10 bg-[#0a1728]">
+                        <img src="maal photo.jpeg" alt="Soda feldspar powder product" loading="lazy" class="w-full h-64 sm:h-72 object-cover">
+                        <div class="p-4"><h3 class="font-bold text-white">Feldspar Powder</h3><p class="text-gray-400 text-sm mt-1">Ceramic-grade mineral product</p></div>
+                    </article>
+                    <article class="gallery-slide min-w-[82%] sm:min-w-[48%] lg:min-w-[32%] snap-start rounded-2xl overflow-hidden border border-white/10 bg-[#0a1728]">
+                        <img src="silica sand.JPG" alt="Silica sand product" loading="lazy" class="w-full h-64 sm:h-72 object-cover">
+                        <div class="p-4"><h3 class="font-bold text-white">Silica Sand</h3><p class="text-gray-400 text-sm mt-1">Multiple industrial grades</p></div>
+                    </article>
+                    <article class="gallery-slide min-w-[82%] sm:min-w-[48%] lg:min-w-[32%] snap-start rounded-2xl overflow-hidden border border-white/10 bg-[#0a1728]">
+                        <img src="bag photo.jpeg" alt="Mineral powder packaging bags" loading="lazy" class="w-full h-64 sm:h-72 object-cover">
+                        <div class="p-4"><h3 class="font-bold text-white">Packaging & Dispatch</h3><p class="text-gray-400 text-sm mt-1">Packed for safe transportation</p></div>
+                    </article>
+                </div>
+                <div class="flex items-center justify-center gap-4 mt-4">
+                    <button type="button" id="gallery-prev" aria-label="Previous gallery photos" class="w-10 h-10 rounded-full border border-[#00BFFF]/40 text-[#00BFFF] hover:bg-[#00BFFF] hover:text-black transition"><i class="fas fa-chevron-left"></i></button>
+                    <div id="gallery-dots" class="flex gap-2" aria-label="Gallery slide indicators"></div>
+                    <button type="button" id="gallery-next" aria-label="Next gallery photos" class="w-10 h-10 rounded-full border border-[#00BFFF]/40 text-[#00BFFF] hover:bg-[#00BFFF] hover:text-black transition"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
         </div>
     </section>
@@ -815,6 +871,49 @@
           if (!seen) window.setTimeout(window.openDiwaliPopup, 1100);
         }
       })();
+    </script>
+
+
+    <script>
+    (() => {
+        const track = document.getElementById('helex-gallery-track');
+        if (!track) return;
+        const slides = Array.from(track.querySelectorAll('.gallery-slide'));
+        const dots = document.getElementById('gallery-dots');
+        let current = 0;
+        let timer;
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.setAttribute('aria-label', 'Show gallery photo ' + (index + 1));
+            dot.addEventListener('click', () => goTo(index));
+            dots.appendChild(dot);
+        });
+        const dotButtons = Array.from(dots.children);
+        function goTo(index) {
+            current = (index + slides.length) % slides.length;
+            track.scrollTo({ left: slides[current].offsetLeft - slides[0].offsetLeft, behavior: 'smooth' });
+            dotButtons.forEach((dot, i) => {
+                dot.classList.toggle('active', i === current);
+                dot.setAttribute('aria-current', i === current ? 'true' : 'false');
+            });
+        }
+        function next() { goTo(current + 1); }
+        document.getElementById('gallery-next').addEventListener('click', () => { next(); restart(); });
+        document.getElementById('gallery-prev').addEventListener('click', () => { goTo(current - 1); restart(); });
+        function start() {
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = window.setInterval(next, 3500);
+        }
+        function stop() { window.clearInterval(timer); }
+        function restart() { stop(); start(); }
+        track.addEventListener('mouseenter', stop);
+        track.addEventListener('mouseleave', start);
+        track.addEventListener('touchstart', stop, { passive: true });
+        track.addEventListener('touchend', start, { passive: true });
+        document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+        goTo(0);
+        start();
+    })();
     </script>
 
 </body>
