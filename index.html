@@ -142,6 +142,13 @@
             animation: floatParticles 4s infinite linear;
         }
     
+        /* Small festive diya above the HELEX logo only */
+        .helex-logo-wrap{position:relative}
+        .helex-logo-diya{position:absolute;z-index:2;top:-12px;left:50%;transform:translateX(-50%);width:25px;height:18px;pointer-events:none;filter:drop-shadow(0 0 5px rgba(255,174,65,.65))}
+        .helex-logo-diya svg{display:block;width:100%;height:100%;overflow:visible}
+        .helex-logo-flame{transform-origin:50% 90%;animation:helexLogoFlicker 1.4s ease-in-out infinite alternate}
+        @keyframes helexLogoFlicker{from{transform:rotate(-5deg) scale(.96)}to{transform:rotate(5deg) scale(1.06)}}
+        @media(prefers-reduced-motion:reduce){.helex-logo-flame{animation:none}}
         /* HELEX MINERALS - Diwali 2026 greeting */
         .diwali-strip{position:relative;z-index:40;padding:14px 18px;text-align:center;background:linear-gradient(100deg,#321306,#8a3d0b 48%,#321306);border-bottom:1px solid rgba(255,190,90,.45);color:#fff3d6;font-size:14px;line-height:1.6}
         .diwali-strip strong{color:#ffd27a;letter-spacing:.04em}
@@ -171,8 +178,16 @@
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between relative">
             
             <div class="flex items-center gap-3.5 group cursor-pointer">
-                <div class="relative">
+                <div class="relative helex-logo-wrap">
                     <img src="helex logo.jpeg" alt="Helex Logo" class="w-12 h-12 rounded-xl object-cover border border-white/10 shadow-[0_0_15px_rgba(0,191,255,0.2)]">
+                    <span class="helex-logo-diya" aria-hidden="true">
+                        <svg viewBox="0 0 40 28" role="presentation">
+                            <path d="M5 15 Q20 27 35 15 Q31 24 20 25 Q9 24 5 15Z" fill="#c47a2c" stroke="#ffd27a" stroke-width="1.2"/>
+                            <path d="M9 16 Q20 20 31 16" fill="none" stroke="#ffe2a1" stroke-width="1.1"/>
+                            <path class="helex-logo-flame" d="M20 14 C13 9 20 2 21 0 C27 7 27 11 20 14Z" fill="#ff9d2e" stroke="#ffd27a" stroke-width=".8"/>
+                            <path class="helex-logo-flame" d="M21 12 C18 8 21 5 22 4 C25 8 24 11 21 12Z" fill="#fff4bd"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="flex items-center gap-2.5">
                     <span class="text-2xl font-black text-white tracking-tight leading-none">HELEX</span>
